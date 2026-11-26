@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth motion-reduce:scroll-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Muhammad Zul Fitri bin Mohd Zamri — Software Development student at UTeM, former Junior Software Developer at HeiTech Padu Berhad, and Event Photographer.">
+    <title>Muhammad Zul Fitri — Software Developer &amp; Event Photographer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+    <!-- Accessible Skip Navigation Link -->
+    <a
+        href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600">
+        Skip to main content
+    </a>
+
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/85 backdrop-blur-md print:hidden">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <!-- Brand / Logo -->
+            <a
+                href="index.html"
+                class="rounded-md text-xl font-bold tracking-tight text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                ZulFitri<span class="text-indigo-600">.dev</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden items-center gap-1 md:flex" aria-label="Main Navigation">
+                                                        <a
+                        href="index.html"
+                        aria-current="page"                        class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-50 font-semibold text-indigo-700">
+                        Home                    </a>
+                                                        <a
+                        href="projects.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Projects                    </a>
+                                                        <a
+                        href="experience.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Experience                    </a>
+                                                        <a
+                        href="education.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Education                    </a>
+                                                        <a
+                        href="photography.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Photography                    </a>
+                                                        <a
+                        href="volunteer.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Volunteer                    </a>
+                                                        <a
+                        href="index.html#contact"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Contact                    </a>
+                            </nav>
+
+            <!-- Desktop CTA -->
+            <div class="hidden items-center gap-3 md:flex">
+                                    <button
+                        type="button"
+                        data-print-cv
+                        class="cursor-pointer rounded-lg px-3.5 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Print Page
+                    </button>
+                                <a
+                    href="index.html#contact"
+                    class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-xs transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+                id="mobile-menu-btn"
+                type="button"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 md:hidden"
+                aria-controls="mobile-menu"
+                aria-expanded="false">
+                <span class="sr-only">Toggle main navigation menu</span>
+                <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+            <nav aria-label="Mobile Navigation" class="space-y-1 px-4 pt-3 pb-4">
+                                                        <a
+                        href="index.html"
+                        data-mobile-nav-link
+                        aria-current="page"                        class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-50 font-semibold text-indigo-700">
+                        Home                    </a>
+                                                        <a
+                        href="projects.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Projects                    </a>
+                                                        <a
+                        href="experience.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Experience                    </a>
+                                                        <a
+                        href="education.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Education                    </a>
+                                                        <a
+                        href="photography.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Photography                    </a>
+                                                        <a
+                        href="volunteer.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Volunteer                    </a>
+                                                        <a
+                        href="index.html#contact"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Contact                    </a>
+                                <div class="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
+                                            <button
+                            type="button"
+                            data-print-cv
+                            class="w-full cursor-pointer rounded-lg border border-slate-200 px-4 py-2.5 text-center text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Print Page
+                        </button>
+                                        <a
+                        href="index.html#contact"
+                        data-mobile-nav-link
+                        class="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Get in Touch
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<main id="main-content">
+    <!-- Hero / About Section -->
+    <section id="about" aria-labelledby="hero-heading" class="scroll-mt-20 bg-white py-16 sm:py-20 lg:py-24">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50 px-3.5 py-1 text-xs font-semibold text-indigo-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                        <span>UTeM Software Development &middot; Event Photography</span>
+                    </div>
+
+                    <h1 id="hero-heading" class="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                        Muhammad Zul Fitri
+                        <span class="mt-1 block text-2xl font-semibold text-indigo-600 sm:text-3xl">
+                            bin Mohd Zamri
+                        </span>
+                    </h1>
+
+                    <p class="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                        Motivated and detail-oriented Photographer with a strong technical foundation in software development, bringing a unique analytical approach to visual storytelling. Proven experience in event and fast-paced photography, with a sharp eye for capturing candid moments under pressure, paired with industry engineering in .NET, Blazor, Laravel, and computer vision.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap items-center gap-3">
+                        <a
+                            href="projects.html"
+                            class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow-xs transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Projects Showcase
+                        </a>
+                        <a
+                            href="photography.html"
+                            class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Photography Showcase
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/mhdzulfitri"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <span>LinkedIn</span>
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                            </svg>
+                            <span class="sr-only">(opens in a new tab)</span>
+                        </a>
+                    </div>
+
+                    <dl class="mt-10 grid grid-cols-2 gap-4 border-t border-slate-200/80 pt-8 sm:grid-cols-4">
+                        <div>
+                            <dt class="text-xs font-medium text-slate-500">Industry Role</dt>
+                            <dd class="mt-1 text-base font-semibold text-slate-900">HeiTech Padu</dd>
+                        </div>
+                        <div>
+                            <dt class="text-xs font-medium text-slate-500">Diploma CGPA</dt>
+                            <dd class="mt-1 text-base font-semibold text-slate-900">3.62 / 4.00</dd>
+                        </div>
+                        <div>
+                            <dt class="text-xs font-medium text-slate-500">Scholarship</dt>
+                            <dd class="mt-1 text-base font-semibold text-slate-900">YBTM KPT – PCP</dd>
+                        </div>
+                        <div>
+                            <dt class="text-xs font-medium text-slate-500">Event Coverage</dt>
+                            <dd class="mt-1 text-base font-semibold text-slate-900">10+ Events</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <!-- Profile Card -->
+                <div class="lg:col-span-5">
+                    <div class="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/70 p-6 shadow-xs sm:p-7">
+                        <div class="flex items-center gap-4">
+                                                            <div
+                                    class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-2xl font-bold tracking-tight text-white shadow-xs"
+                                    aria-hidden="true">
+                                    ZF
+                                </div>
+                                                        <div>
+                                <p class="text-base font-semibold text-slate-900">Muhammad Zul Fitri</p>
+                                <p class="text-sm text-slate-600">Bandar Saujana Putra, Selangor</p>
+                                <p class="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-indigo-700">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+                                    Open to collaborations &amp; opportunities
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 space-y-4 border-t border-slate-200/80 pt-5">
+                            <div class="rounded-xl border border-slate-200/80 bg-white p-4">
+                                <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Software Development</p>
+                                <p class="mt-1 text-sm leading-6 text-slate-600">
+                                    Customer-facing enterprise systems, smart web platforms, and real-time computer vision.
+                                </p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5" aria-label="Software development skills">
+                                                                            <li class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">.NET</li>
+                                                                            <li class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">Blazor</li>
+                                                                            <li class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">Laravel</li>
+                                                                            <li class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">Python</li>
+                                                                            <li class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">OpenCV</li>
+                                                                            <li class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">Ultralytics</li>
+                                                                    </ul>
+                            </div>
+
+                            <div class="rounded-xl border border-slate-200/80 bg-white p-4">
+                                <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Event Photography</p>
+                                <p class="mt-1 text-sm leading-6 text-slate-600">
+                                    Fast-paced documentary and VIP protocol coverage across Malaysia and ASEAN.
+                                </p>
+                                <ul class="mt-3 flex flex-wrap gap-1.5" aria-label="Photography strengths">
+                                                                            <li class="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">VIP &amp; Protocol</li>
+                                                                            <li class="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">Candid Storytelling</li>
+                                                                            <li class="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">Digital Editing</li>
+                                                                            <li class="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">ASEAN Events</li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Page Portfolio Showcase Directory -->
+    <section aria-labelledby="directory-heading" class="border-t border-slate-200/80 bg-slate-50 py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl">
+                <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Explore Portfolio</p>
+                <h2 id="directory-heading" class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                    Dedicated Visual Showcases
+                </h2>
+                <p class="mt-3 text-base leading-relaxed text-slate-600">
+                    Browse dedicated pages for projects, work experience, education, and event photography — each with interactive image galleries.
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                    <a
+                        href="projects.html"
+                        class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                                <img
+                                    src="asset/projects/blazor-systems.svg"
+                                    alt="Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                            </div>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <span class="text-xs font-semibold text-indigo-600">3 Systems</span>
+                            <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
+                                Projects Showcase                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                Enterprise .NET/Blazor apps, Laravel smart parking platform, and Python OpenCV computer vision.                            </p>
+                            <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
+                                Open Showcase
+                                <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
+                            </span>
+                        </div>
+                    </a>
+                                    <a
+                        href="experience.html"
+                        class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                                <img
+                                    src="asset/experience/heitech.png"
+                                    alt="Showcase cover for Junior Software Developer role at HeiTech Padu Berhad"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                            </div>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <span class="text-xs font-semibold text-indigo-600">2 Roles</span>
+                            <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
+                                Work Experience                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                Industry software development at HeiTech Padu Berhad and official ASEAN volunteer photography.                            </p>
+                            <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
+                                Open Showcase
+                                <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
+                            </span>
+                        </div>
+                    </a>
+                                    <a
+                        href="education.html"
+                        class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                                <img
+                                    src="asset/education/utem-bcs.svg"
+                                    alt="Showcase cover for Bachelor of Computer Science (Software Development) at UTeM"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                            </div>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <span class="text-xs font-semibold text-indigo-600">2 Qualifications</span>
+                            <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
+                                Education &amp; Honors                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                Bachelor of CS at UTeM (YBTM KPT – PCP Scholar) and Diploma in IT at PSMZA (CGPA 3.62).                            </p>
+                            <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
+                                Open Showcase
+                                <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
+                            </span>
+                        </div>
+                    </a>
+                                    <a
+                        href="photography.html"
+                        class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                                <img
+                                    src="asset/photography/makan-malam/M (1).JPEG"
+                                    alt="Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP) organized by WADAH Malaysia"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                            </div>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <span class="text-xs font-semibold text-indigo-600">10 Events</span>
+                            <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
+                                Photography Showcase                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                Fast-paced event, regional ASEAN, international, and VIP protocol photography coverage.                            </p>
+                            <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
+                                Open Showcase
+                                <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
+                            </span>
+                        </div>
+                    </a>
+                                    <a
+                        href="volunteer.html"
+                        class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                                <img
+                                    src="asset/organizations/pkpim.svg"
+                                    alt="Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                            </div>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <span class="text-xs font-semibold text-indigo-600">9 Programmes · 1 NGO</span>
+                            <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
+                                Volunteer &amp; NGO                            </h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                PKPIM leadership (Penolong Setiausaha 1) and volunteer programmes across Malaysia &amp; ASEAN.                            </p>
+                            <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
+                                Open Showcase
+                                <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
+                            </span>
+                        </div>
+                    </a>
+                            </div>
+        </div>
+    </section>
+
+    <!-- Featured Photography & Projects Teaser -->
+    <section aria-labelledby="featured-heading" class="border-t border-slate-200/80 bg-white py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div class="max-w-2xl">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Highlights</p>
+                    <h2 id="featured-heading" class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                        Featured Photography Coverage
+                    </h2>
+                </div>
+                <a
+                    href="photography.html"
+                    class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    View all 10 events &rarr;
+                </a>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+                                                        <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                                                    <button
+                                type="button"
+                                data-gallery-trigger
+                                data-gallery="[{&quot;src&quot;:&quot;asset/photography/makan-malam/M (1).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 1&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (2).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 2&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (3).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 3&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (4).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 4&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (5).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 5&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (6).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 6&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (7).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 7&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (8).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 8&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (9).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 9&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (10).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 10&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (11).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 11&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (12).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 12&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (13).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 13&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;},{&quot;src&quot;:&quot;asset/photography/makan-malam/M (14).JPG&quot;,&quot;alt&quot;:&quot;Majlis Makan Malam Apresiasi 3 Generasi \u2014 Photo 14&quot;,&quot;caption&quot;:&quot;Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.&quot;}]"
+                                data-gallery-index="0"
+                                data-gallery-title="Majlis Makan Malam Apresiasi 3 Generasi"
+                                data-gallery-meta="Malaysia · 2025"
+                                class="relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                <img
+                                    src="asset/photography/makan-malam/M (1).JPEG"
+                                    alt="Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP) organized by WADAH Malaysia"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                <span class="sr-only">Preview image for Majlis Makan Malam Apresiasi 3 Generasi</span>
+                            </button>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <div class="flex items-center justify-between gap-2 text-xs">
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700">Regional &amp; VIP</span>
+                                <span class="text-slate-500">2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-semibold text-slate-900">Majlis Makan Malam Apresiasi 3 Generasi</h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.</p>
+                        </div>
+                    </article>
+                                                        <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                                                    <button
+                                type="button"
+                                data-gallery-trigger
+                                data-gallery="[{&quot;src&quot;:&quot;asset/photography/msealp.svg&quot;,&quot;alt&quot;:&quot;Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP)&quot;,&quot;caption&quot;:&quot;High-level regional ASEAN programme organized by WADAH Malaysia, including the Kolokium featuring the Prime Minister of Malaysia.&quot;}]"
+                                data-gallery-index="0"
+                                data-gallery-title="MADANI Sea Leadership Programme (MSEALP)"
+                                data-gallery-meta="Malaysia · 2025"
+                                class="relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                <img
+                                    src="asset/photography/msealp.svg"
+                                    alt="Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP) organized by WADAH Malaysia"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                <span class="sr-only">Preview image for MADANI Sea Leadership Programme (MSEALP)</span>
+                            </button>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <div class="flex items-center justify-between gap-2 text-xs">
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700">Regional &amp; VIP</span>
+                                <span class="text-slate-500">2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-semibold text-slate-900">MADANI Sea Leadership Programme (MSEALP)</h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">Official event photographer for WADAH Malaysia&#039;s high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister&#039;s Department (Religious Affairs) and the Menteri Besar of Selangor.</p>
+                        </div>
+                    </article>
+                                                        <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                                                    <button
+                                type="button"
+                                data-gallery-trigger
+                                data-gallery="[{&quot;src&quot;:&quot;asset/photography/konvensyen-madani-2025.svg&quot;,&quot;alt&quot;:&quot;Photography coverage at Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025&quot;,&quot;caption&quot;:&quot;National-level convention photography capturing keynote sessions and student engagement.&quot;}]"
+                                data-gallery-index="0"
+                                data-gallery-title="Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025"
+                                data-gallery-meta="Malaysia · 2025"
+                                class="relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                <img
+                                    src="asset/photography/konvensyen-madani-2025.svg"
+                                    alt="Photography coverage at Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025"
+                                    loading="lazy"
+                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                <span class="sr-only">Preview image for Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025</span>
+                            </button>
+                                                <div class="flex flex-1 flex-col p-5">
+                            <div class="flex items-center justify-between gap-2 text-xs">
+                                <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700">National Convention</span>
+                                <span class="text-slate-500">2025</span>
+                            </div>
+                            <h3 class="mt-3 text-base font-semibold text-slate-900">Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025</h3>
+                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">National-level pre-university convention photography capturing keynote sessions, student engagement, and candid moments.</p>
+                        </div>
+                    </article>
+                            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-labelledby="contact-heading" class="scroll-mt-20 border-t border-slate-200/80 bg-slate-50 py-16 sm:py-20 lg:py-24">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl border border-slate-200/80 bg-white p-8 shadow-xs sm:p-10 lg:p-12">
+                <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
+                    <div class="lg:col-span-6">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Let's Connect</p>
+                        <h2 id="contact-heading" class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                            Ready to collaborate on software or event photography?
+                        </h2>
+                        <p class="mt-3 text-base leading-relaxed text-slate-600">
+                            Whether you are looking for a detail-oriented software developer or an experienced photographer for formal, youth, or institutional events, feel free to reach out directly.
+                        </p>
+
+                        <div class="mt-6 flex flex-wrap items-center gap-3 print:hidden">
+                            <a
+                                href="mailto:zul.ilhae@gmail.com"
+                                class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow-xs transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                Send an Email
+                            </a>
+                            <button
+                                id="copy-email-btn"
+                                type="button"
+                                data-copy-email="zul.ilhae@gmail.com"
+                                class="inline-flex cursor-pointer items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                Copy Email
+                            </button>
+                            <span id="copy-email-status" class="sr-only" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <div class="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-slate-500">Email</dt>
+                                <dd class="mt-1.5 text-sm font-medium text-slate-900">
+                                    <a href="mailto:zul.ilhae@gmail.com" class="break-all rounded-xs hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        zul.ilhae@gmail.com                                    </a>
+                                </dd>
+                            </div>
+                            <div class="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-slate-500">Phone</dt>
+                                <dd class="mt-1.5 text-sm font-medium text-slate-900">
+                                    <a href="tel:+60182560425" class="rounded-xs hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        +6018-2560 425                                    </a>
+                                </dd>
+                            </div>
+                            <div class="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-slate-500">LinkedIn</dt>
+                                <dd class="mt-1.5 text-sm font-medium text-slate-900">
+                                    <a
+                                        href="https://www.linkedin.com/in/mhdzulfitri"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="rounded-xs hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        linkedin.com/in/mhdzulfitri                                        <span class="sr-only">(opens in a new tab)</span>
+                                    </a>
+                                </dd>
+                            </div>
+                            <div class="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-slate-500">Location</dt>
+                                <dd class="mt-1.5 text-sm font-medium text-slate-900">
+                                    Bandar Saujana Putra, Selangor                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer class="mt-auto border-t border-slate-200/80 bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+            <div class="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                <div>
+                    <a href="index.html" class="text-base font-bold tracking-tight text-slate-900">
+                        ZulFitri<span class="text-indigo-600">.dev</span>
+                    </a>
+                    <p class="mt-1 text-sm text-slate-500">
+                        &copy; 2026 Muhammad Zul Fitri bin Mohd Zamri. Software Development &amp; Event Photography.
+                    </p>
+                </div>
+
+                <nav aria-label="Footer Navigation" class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-slate-600 print:hidden">
+                    <a href="index.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Home</a>
+                    <a href="projects.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Projects</a>
+                    <a href="experience.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Experience</a>
+                    <a href="education.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Education</a>
+                    <a href="photography.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Photography</a>
+                    <a href="volunteer.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Volunteer</a>
+                    <a href="https://www.linkedin.com/in/mhdzulfitri" target="_blank" rel="noopener noreferrer" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        LinkedIn<span class="sr-only"> (opens in a new tab)</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accessible Multi-Image Showcase Lightbox Modal -->
+    <div
+        id="showcase-lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lightbox-title"
+        class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/85 p-4 backdrop-blur-xs">
+        <div class="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div class="flex items-center justify-between gap-4 border-b border-slate-200 px-5 py-3.5">
+                <div class="min-w-0">
+                    <h3 id="lightbox-title" class="truncate text-base font-semibold text-slate-900"></h3>
+                    <p id="lightbox-meta" class="truncate text-xs font-medium text-slate-500"></p>
+                </div>
+                <div class="flex shrink-0 items-center gap-2">
+                    <span id="lightbox-counter" class="hidden rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700"></span>
+                    <button
+                        id="lightbox-close"
+                        type="button"
+                        class="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        aria-label="Close image showcase">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative flex items-center justify-center bg-slate-950">
+                <button
+                    id="lightbox-prev"
+                    type="button"
+                    class="absolute left-3 z-10 hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    aria-label="Previous image">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+
+                <img id="lightbox-img" src="" alt="" class="max-h-[68vh] w-full object-contain">
+
+                <button
+                    id="lightbox-next"
+                    type="button"
+                    class="absolute right-3 z-10 hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    aria-label="Next image">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="px-5 py-4">
+                <p id="lightbox-caption" class="text-sm leading-6 text-slate-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            // Mobile navigation menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+
+            function setMenuOpen(open) {
+                if (!menuBtn || !mobileMenu) return;
+                menuBtn.setAttribute('aria-expanded', String(open));
+                mobileMenu.classList.toggle('hidden', !open);
+                if (iconOpen) iconOpen.classList.toggle('hidden', open);
+                if (iconClose) iconClose.classList.toggle('hidden', !open);
+            }
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                    setMenuOpen(!isExpanded);
+                });
+
+                document.querySelectorAll('[data-mobile-nav-link]').forEach((link) => {
+                    link.addEventListener('click', () => setMenuOpen(false));
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+                        setMenuOpen(false);
+                        menuBtn.focus();
+                    }
+                });
+            }
+
+            // Print action
+            document.querySelectorAll('[data-print-cv]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    setMenuOpen(false);
+                    window.print();
+                });
+            });
+
+            // Reusable accessible filter + optional search controller
+            document.querySelectorAll('[data-filter-group]').forEach((group) => {
+                const groupName = group.getAttribute('data-filter-group');
+                const buttons = group.querySelectorAll('[data-filter-value]');
+                const items = document.querySelectorAll(`[data-filter-item="${groupName}"]`);
+                const searchInput = document.querySelector(`[data-filter-search="${groupName}"]`);
+                const statusEl = document.querySelector(`[data-filter-status="${groupName}"]`);
+                const emptyEl = document.querySelector(`[data-filter-empty="${groupName}"]`);
+
+                let activeCategory = 'all';
+
+                function applyFilters() {
+                    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+                    let visibleCount = 0;
+
+                    items.forEach((item) => {
+                        const itemCat = item.getAttribute('data-category') || '';
+                        const searchHaystack = (item.getAttribute('data-search') || item.textContent || '').toLowerCase();
+                        const catMatch = activeCategory === 'all' || itemCat === activeCategory;
+                        const textMatch = query === '' || searchHaystack.includes(query);
+                        const match = catMatch && textMatch;
+                        item.classList.toggle('hidden', !match);
+                        if (match) visibleCount++;
+                    });
+
+                    if (emptyEl) {
+                        emptyEl.classList.toggle('hidden', visibleCount > 0);
+                    }
+
+                    if (statusEl) {
+                        const label = activeCategory === 'all' ? 'all categories' : activeCategory;
+                        const suffix = query ? ` matching "${query}"` : '';
+                        statusEl.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'item' : 'items'} in ${label}${suffix}.`;
+                    }
+                }
+
+                buttons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        activeCategory = button.getAttribute('data-filter-value') || 'all';
+                        buttons.forEach((btn) => {
+                            const active = btn === button;
+                            btn.setAttribute('aria-pressed', String(active));
+                            btn.classList.toggle('bg-indigo-600', active);
+                            btn.classList.toggle('text-white', active);
+                            btn.classList.toggle('border-indigo-600', active);
+                            btn.classList.toggle('bg-white', !active);
+                            btn.classList.toggle('text-slate-700', !active);
+                            btn.classList.toggle('border-slate-200', !active);
+                        });
+                        applyFilters();
+                    });
+                });
+
+                if (searchInput) {
+                    searchInput.addEventListener('input', applyFilters);
+                }
+            });
+
+            // Copy email with visible & screen-reader feedback
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            const copyEmailStatus = document.getElementById('copy-email-status');
+            if (copyEmailBtn) {
+                copyEmailBtn.addEventListener('click', async () => {
+                    const email = copyEmailBtn.getAttribute('data-copy-email') || '';
+                    try {
+                        await navigator.clipboard.writeText(email);
+                        if (copyEmailStatus) copyEmailStatus.textContent = 'Email copied to clipboard.';
+                        const original = copyEmailBtn.textContent;
+                        copyEmailBtn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyEmailBtn.textContent = original;
+                            if (copyEmailStatus) copyEmailStatus.textContent = '';
+                        }, 2200);
+                    } catch {
+                        if (copyEmailStatus) copyEmailStatus.textContent = 'Could not copy automatically. Email: ' + email;
+                    }
+                });
+            }
+
+            // Accessible Multi-Image Showcase Lightbox
+            const lightbox = document.getElementById('showcase-lightbox');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxMeta = document.getElementById('lightbox-meta');
+
+            let slides = [];
+            let currentIndex = 0;
+            let lastTrigger = null;
+
+            function renderSlide() {
+                if (!slides.length) return;
+                const slide = slides[currentIndex];
+                if (lightboxImg) {
+                    lightboxImg.src = slide.src || '';
+                    lightboxImg.alt = slide.alt || '';
+                }
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = slide.caption || '';
+                }
+                const multi = slides.length > 1;
+                if (lightboxPrev) {
+                    lightboxPrev.classList.toggle('hidden', !multi);
+                    lightboxPrev.classList.toggle('inline-flex', multi);
+                }
+                if (lightboxNext) {
+                    lightboxNext.classList.toggle('hidden', !multi);
+                    lightboxNext.classList.toggle('inline-flex', multi);
+                }
+                if (lightboxCounter) {
+                    lightboxCounter.classList.toggle('hidden', !multi);
+                    lightboxCounter.textContent = `${currentIndex + 1} / ${slides.length}`;
+                }
+            }
+
+            function closeLightbox() {
+                if (!lightbox || lightbox.classList.contains('hidden')) return;
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus();
+                }
+            }
+
+            if (lightbox && lightboxClose) {
+                document.querySelectorAll('[data-gallery-trigger]').forEach((trigger) => {
+                    trigger.addEventListener('click', () => {
+                        try {
+                            const parsed = JSON.parse(trigger.getAttribute('data-gallery') || '[]');
+                            if (!Array.isArray(parsed) || parsed.length === 0) return;
+                            slides = parsed;
+                        } catch {
+                            return;
+                        }
+
+                        lastTrigger = trigger;
+                        const requestedIndex = parseInt(trigger.getAttribute('data-gallery-index') || '0', 10);
+                        currentIndex = Number.isNaN(requestedIndex) ? 0 : Math.max(0, Math.min(requestedIndex, slides.length - 1));
+
+                        if (lightboxTitle) lightboxTitle.textContent = trigger.getAttribute('data-gallery-title') || '';
+                        if (lightboxMeta) lightboxMeta.textContent = trigger.getAttribute('data-gallery-meta') || '';
+
+                        renderSlide();
+                        lightbox.classList.remove('hidden');
+                        lightbox.classList.add('flex');
+                        document.body.classList.add('overflow-hidden');
+                        lightboxClose.focus();
+                    });
+                });
+
+                if (lightboxPrev) {
+                    lightboxPrev.addEventListener('click', () => {
+                        if (slides.length < 2) return;
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        renderSlide();
+                    });
+                }
+
+                if (lightboxNext) {
+                    lightboxNext.addEventListener('click', () => {
+                        if (slides.length < 2) return;
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        renderSlide();
+                    });
+                }
+
+                lightboxClose.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (event) => {
+                    if (event.target === lightbox) closeLightbox();
+                });
+                document.addEventListener('keydown', (event) => {
+                    if (lightbox.classList.contains('hidden')) return;
+                    if (event.key === 'Escape') {
+                        closeLightbox();
+                    } else if (event.key === 'ArrowLeft' && slides.length > 1) {
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        renderSlide();
+                    } else if (event.key === 'ArrowRight' && slides.length > 1) {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        renderSlide();
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

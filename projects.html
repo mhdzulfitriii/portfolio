@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth motion-reduce:scroll-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Software engineering and computer vision projects built by Muhammad Zul Fitri using .NET, Blazor, Laravel, Python, OpenCV, and Ultralytics.">
+    <title>Projects Showcase — Muhammad Zul Fitri</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+    <!-- Accessible Skip Navigation Link -->
+    <a
+        href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600">
+        Skip to main content
+    </a>
+
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/85 backdrop-blur-md print:hidden">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <!-- Brand / Logo -->
+            <a
+                href="index.html"
+                class="rounded-md text-xl font-bold tracking-tight text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                ZulFitri<span class="text-indigo-600">.dev</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden items-center gap-1 md:flex" aria-label="Main Navigation">
+                                                        <a
+                        href="index.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Home                    </a>
+                                                        <a
+                        href="projects.html"
+                        aria-current="page"                        class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-50 font-semibold text-indigo-700">
+                        Projects                    </a>
+                                                        <a
+                        href="experience.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Experience                    </a>
+                                                        <a
+                        href="education.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Education                    </a>
+                                                        <a
+                        href="photography.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Photography                    </a>
+                                                        <a
+                        href="volunteer.html"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Volunteer                    </a>
+                                                        <a
+                        href="index.html#contact"
+                                                class="rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-600 hover:bg-slate-50 hover:text-indigo-600">
+                        Contact                    </a>
+                            </nav>
+
+            <!-- Desktop CTA -->
+            <div class="hidden items-center gap-3 md:flex">
+                                    <button
+                        type="button"
+                        data-print-cv
+                        class="cursor-pointer rounded-lg px-3.5 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Print Page
+                    </button>
+                                <a
+                    href="index.html#contact"
+                    class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-xs transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+                id="mobile-menu-btn"
+                type="button"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 md:hidden"
+                aria-controls="mobile-menu"
+                aria-expanded="false">
+                <span class="sr-only">Toggle main navigation menu</span>
+                <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+            <nav aria-label="Mobile Navigation" class="space-y-1 px-4 pt-3 pb-4">
+                                                        <a
+                        href="index.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Home                    </a>
+                                                        <a
+                        href="projects.html"
+                        data-mobile-nav-link
+                        aria-current="page"                        class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-50 font-semibold text-indigo-700">
+                        Projects                    </a>
+                                                        <a
+                        href="experience.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Experience                    </a>
+                                                        <a
+                        href="education.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Education                    </a>
+                                                        <a
+                        href="photography.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Photography                    </a>
+                                                        <a
+                        href="volunteer.html"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Volunteer                    </a>
+                                                        <a
+                        href="index.html#contact"
+                        data-mobile-nav-link
+                                                class="block rounded-lg px-3 py-2.5 text-base transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600">
+                        Contact                    </a>
+                                <div class="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
+                                            <button
+                            type="button"
+                            data-print-cv
+                            class="w-full cursor-pointer rounded-lg border border-slate-200 px-4 py-2.5 text-center text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Print Page
+                        </button>
+                                        <a
+                        href="index.html#contact"
+                        data-mobile-nav-link
+                        class="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Get in Touch
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<main id="main-content">
+    <!-- Page Header -->
+    <section aria-labelledby="projects-page-heading" class="border-b border-slate-200/80 bg-slate-50 py-12 sm:py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-slate-500">
+                <ol class="flex items-center gap-2">
+                    <li><a href="index.html" class="hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Home</a></li>
+                    <li aria-hidden="true">/</li>
+                    <li class="text-slate-900" aria-current="page">Projects</li>
+                </ol>
+            </nav>
+
+            <div class="max-w-3xl">
+                <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Engineering Portfolio</p>
+                <h1 id="projects-page-heading" class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                    Projects &amp; Technical Showcase
+                </h1>
+                <p class="mt-3 text-base leading-relaxed text-slate-600">
+                    Customer-facing enterprise systems, full-stack smart mobility platforms, and computer vision applications. Click any showcase image to inspect it in full view.
+                </p>
+            </div>
+
+            <!-- Filter & Search Controls -->
+                            <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between print:hidden">
+                    <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects by category" data-filter-group="projects">
+                        <button
+                            type="button"
+                            data-filter-value="all"
+                            aria-pressed="true"
+                            class="cursor-pointer rounded-full border border-indigo-600 bg-indigo-600 px-3.5 py-1.5 text-xs font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            All (3)
+                        </button>
+                                                    <button
+                                type="button"
+                                data-filter-value="Web App"
+                                aria-pressed="false"
+                                class="cursor-pointer rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-indigo-300 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                Web App                            </button>
+                                                    <button
+                                type="button"
+                                data-filter-value="Computer Vision"
+                                aria-pressed="false"
+                                class="cursor-pointer rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-indigo-300 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                Computer Vision                            </button>
+                                            </div>
+
+                    <div class="w-full sm:w-64">
+                        <label for="projects-search" class="sr-only">Search projects</label>
+                        <input
+                            id="projects-search"
+                            type="search"
+                            data-filter-search="projects"
+                            placeholder="Search technologies or titles..."
+                            class="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-2 focus:outline-offset-0 focus:outline-indigo-600">
+                    </div>
+                </div>
+                <p class="sr-only" aria-live="polite" data-filter-status="projects"></p>
+                    </div>
+    </section>
+
+    <!-- Projects Showcase Grid -->
+    <section aria-label="Project list" class="bg-white py-14 sm:py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                                                                    <article
+                            data-filter-item="projects"
+                            data-category="Web App"
+                            data-search="Customer-Facing Enterprise Web Systems Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces. Web App .NET Blazor OpenProject System Testing"
+                            class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                                                            <button
+                                    type="button"
+                                    data-gallery-trigger
+                                    data-gallery="[{&quot;src&quot;:&quot;asset/projects/blazor-systems.svg&quot;,&quot;alt&quot;:&quot;Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor&quot;,&quot;caption&quot;:&quot;Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad.&quot;}]"
+                                    data-gallery-index="0"
+                                    data-gallery-title="Customer-Facing Enterprise Web Systems"
+                                    data-gallery-meta="Web App · Junior Software Developer · 2025"
+                                    class="relative aspect-video w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <img
+                                        src="asset/projects/blazor-systems.svg"
+                                        alt="Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor"
+                                        loading="lazy"
+                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                    <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
+                                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                        </svg>
+                                        <span>View Showcase</span>
+                                    </span>
+                                </button>
+
+                                                            
+                            <div class="flex flex-1 flex-col p-6">
+                                <div class="flex items-center justify-between gap-2 text-xs">
+                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
+                                        Web App                                    </span>
+                                    <span class="font-medium text-slate-500">2025</span>
+                                </div>
+
+                                <h2 class="mt-3 text-xl font-semibold text-slate-900">Customer-Facing Enterprise Web Systems</h2>
+                                                                    <p class="mt-1 text-xs font-medium text-slate-500">Junior Software Developer</p>
+                                
+                                <p class="mt-3 text-sm leading-6 text-slate-600">
+                                    Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.                                </p>
+
+                                                                    <ul class="mt-4 space-y-1.5 text-sm leading-6 text-slate-600">
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Delivered functional, user-centric web features aligned with specific business objectives</span>
+                                            </li>
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Tracked and resolved software defects systematically via OpenProject to sustain high reliability</span>
+                                            </li>
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Applied rigorous coding and system testing standards across release cycles</span>
+                                            </li>
+                                                                            </ul>
+                                
+                                <div class="mt-auto pt-5">
+                                                                            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">.NET</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Blazor</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">OpenProject</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">System Testing</li>
+                                                                                    </ul>
+                                    
+                                                                    </div>
+                            </div>
+                        </article>
+                                                                    <article
+                            data-filter-item="projects"
+                            data-category="Web App"
+                            data-search="Smart Parking Web Application Engineered a smart parking management web application during my internship at HeiTech Padu Berhad to centralize slot tracking and improve operational efficiency. Web App Laravel PHP Web Architecture Smart Mobility"
+                            class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                                                            <button
+                                    type="button"
+                                    data-gallery-trigger
+                                    data-gallery="[{&quot;src&quot;:&quot;asset/projects/smart-parking.svg&quot;,&quot;alt&quot;:&quot;Showcase cover for the Smart Parking Web Application engineered with Laravel&quot;,&quot;caption&quot;:&quot;Smart parking web platform built with Laravel to enhance parking management efficiency.&quot;}]"
+                                    data-gallery-index="0"
+                                    data-gallery-title="Smart Parking Web Application"
+                                    data-gallery-meta="Web App · Software Developer Trainee · 2024"
+                                    class="relative aspect-video w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <img
+                                        src="asset/projects/smart-parking.svg"
+                                        alt="Showcase cover for the Smart Parking Web Application engineered with Laravel"
+                                        loading="lazy"
+                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                    <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
+                                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                        </svg>
+                                        <span>View Showcase</span>
+                                    </span>
+                                </button>
+
+                                                            
+                            <div class="flex flex-1 flex-col p-6">
+                                <div class="flex items-center justify-between gap-2 text-xs">
+                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
+                                        Web App                                    </span>
+                                    <span class="font-medium text-slate-500">2024</span>
+                                </div>
+
+                                <h2 class="mt-3 text-xl font-semibold text-slate-900">Smart Parking Web Application</h2>
+                                                                    <p class="mt-1 text-xs font-medium text-slate-500">Software Developer Trainee</p>
+                                
+                                <p class="mt-3 text-sm leading-6 text-slate-600">
+                                    Engineered a smart parking management web application during my internship at HeiTech Padu Berhad to centralize slot tracking and improve operational efficiency.                                </p>
+
+                                                                    <ul class="mt-4 space-y-1.5 text-sm leading-6 text-slate-600">
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Engineered end-to-end parking management workflows using Laravel</span>
+                                            </li>
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Improved operational efficiency for real-time parking monitoring and administration</span>
+                                            </li>
+                                                                            </ul>
+                                
+                                <div class="mt-auto pt-5">
+                                                                            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Laravel</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">PHP</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Web Architecture</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Smart Mobility</li>
+                                                                                    </ul>
+                                    
+                                                                    </div>
+                            </div>
+                        </article>
+                                                                    <article
+                            data-filter-item="projects"
+                            data-category="Computer Vision"
+                            data-search="Car Parking Occupancy Detection System Developed and deployed an automated car parking occupancy detection pipeline using Python, OpenCV, and Ultralytics to deliver accurate real-time monitoring. Computer Vision Python OpenCV Ultralytics Computer Vision"
+                            class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                                                            <button
+                                    type="button"
+                                    data-gallery-trigger
+                                    data-gallery="[{&quot;src&quot;:&quot;asset/projects/parking-vision.svg&quot;,&quot;alt&quot;:&quot;Showcase cover for the Car Parking Occupancy Detection System built with Python, OpenCV, and Ultralytics&quot;,&quot;caption&quot;:&quot;Automated car parking occupancy detection powered by Python, OpenCV, and Ultralytics.&quot;}]"
+                                    data-gallery-index="0"
+                                    data-gallery-title="Car Parking Occupancy Detection System"
+                                    data-gallery-meta="Computer Vision · Software Developer Trainee · 2024"
+                                    class="relative aspect-video w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <img
+                                        src="asset/projects/parking-vision.svg"
+                                        alt="Showcase cover for the Car Parking Occupancy Detection System built with Python, OpenCV, and Ultralytics"
+                                        loading="lazy"
+                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                    <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
+                                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                        </svg>
+                                        <span>View Showcase</span>
+                                    </span>
+                                </button>
+
+                                                            
+                            <div class="flex flex-1 flex-col p-6">
+                                <div class="flex items-center justify-between gap-2 text-xs">
+                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
+                                        Computer Vision                                    </span>
+                                    <span class="font-medium text-slate-500">2024</span>
+                                </div>
+
+                                <h2 class="mt-3 text-xl font-semibold text-slate-900">Car Parking Occupancy Detection System</h2>
+                                                                    <p class="mt-1 text-xs font-medium text-slate-500">Software Developer Trainee</p>
+                                
+                                <p class="mt-3 text-sm leading-6 text-slate-600">
+                                    Developed and deployed an automated car parking occupancy detection pipeline using Python, OpenCV, and Ultralytics to deliver accurate real-time monitoring.                                </p>
+
+                                                                    <ul class="mt-4 space-y-1.5 text-sm leading-6 text-slate-600">
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Integrated Ultralytics object detection with OpenCV video processing pipelines</span>
+                                            </li>
+                                                                                    <li class="flex items-start gap-2">
+                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                <span>Improved real-time parking occupancy monitoring accuracy in live deployment</span>
+                                            </li>
+                                                                            </ul>
+                                
+                                <div class="mt-auto pt-5">
+                                                                            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Python</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">OpenCV</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Ultralytics</li>
+                                                                                            <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">Computer Vision</li>
+                                                                                    </ul>
+                                    
+                                                                    </div>
+                            </div>
+                        </article>
+                                    </div>
+
+                <div data-filter-empty="projects" class="hidden rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
+                    <p class="text-sm font-medium text-slate-700">No projects match your current filter.</p>
+                    <p class="mt-1 text-sm text-slate-500">Try clearing the search box or switching back to All categories.</p>
+                </div>
+                    </div>
+    </section>
+</main>
+
+    <footer class="mt-auto border-t border-slate-200/80 bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+            <div class="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                <div>
+                    <a href="index.html" class="text-base font-bold tracking-tight text-slate-900">
+                        ZulFitri<span class="text-indigo-600">.dev</span>
+                    </a>
+                    <p class="mt-1 text-sm text-slate-500">
+                        &copy; 2026 Muhammad Zul Fitri bin Mohd Zamri. Software Development &amp; Event Photography.
+                    </p>
+                </div>
+
+                <nav aria-label="Footer Navigation" class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-slate-600 print:hidden">
+                    <a href="index.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Home</a>
+                    <a href="projects.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Projects</a>
+                    <a href="experience.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Experience</a>
+                    <a href="education.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Education</a>
+                    <a href="photography.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Photography</a>
+                    <a href="volunteer.html" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Volunteer</a>
+                    <a href="https://www.linkedin.com/in/mhdzulfitri" target="_blank" rel="noopener noreferrer" class="rounded-md transition-colors hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        LinkedIn<span class="sr-only"> (opens in a new tab)</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accessible Multi-Image Showcase Lightbox Modal -->
+    <div
+        id="showcase-lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lightbox-title"
+        class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/85 p-4 backdrop-blur-xs">
+        <div class="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div class="flex items-center justify-between gap-4 border-b border-slate-200 px-5 py-3.5">
+                <div class="min-w-0">
+                    <h3 id="lightbox-title" class="truncate text-base font-semibold text-slate-900"></h3>
+                    <p id="lightbox-meta" class="truncate text-xs font-medium text-slate-500"></p>
+                </div>
+                <div class="flex shrink-0 items-center gap-2">
+                    <span id="lightbox-counter" class="hidden rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700"></span>
+                    <button
+                        id="lightbox-close"
+                        type="button"
+                        class="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        aria-label="Close image showcase">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative flex items-center justify-center bg-slate-950">
+                <button
+                    id="lightbox-prev"
+                    type="button"
+                    class="absolute left-3 z-10 hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    aria-label="Previous image">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+
+                <img id="lightbox-img" src="" alt="" class="max-h-[68vh] w-full object-contain">
+
+                <button
+                    id="lightbox-next"
+                    type="button"
+                    class="absolute right-3 z-10 hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    aria-label="Next image">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="px-5 py-4">
+                <p id="lightbox-caption" class="text-sm leading-6 text-slate-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            // Mobile navigation menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+
+            function setMenuOpen(open) {
+                if (!menuBtn || !mobileMenu) return;
+                menuBtn.setAttribute('aria-expanded', String(open));
+                mobileMenu.classList.toggle('hidden', !open);
+                if (iconOpen) iconOpen.classList.toggle('hidden', open);
+                if (iconClose) iconClose.classList.toggle('hidden', !open);
+            }
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                    setMenuOpen(!isExpanded);
+                });
+
+                document.querySelectorAll('[data-mobile-nav-link]').forEach((link) => {
+                    link.addEventListener('click', () => setMenuOpen(false));
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+                        setMenuOpen(false);
+                        menuBtn.focus();
+                    }
+                });
+            }
+
+            // Print action
+            document.querySelectorAll('[data-print-cv]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    setMenuOpen(false);
+                    window.print();
+                });
+            });
+
+            // Reusable accessible filter + optional search controller
+            document.querySelectorAll('[data-filter-group]').forEach((group) => {
+                const groupName = group.getAttribute('data-filter-group');
+                const buttons = group.querySelectorAll('[data-filter-value]');
+                const items = document.querySelectorAll(`[data-filter-item="${groupName}"]`);
+                const searchInput = document.querySelector(`[data-filter-search="${groupName}"]`);
+                const statusEl = document.querySelector(`[data-filter-status="${groupName}"]`);
+                const emptyEl = document.querySelector(`[data-filter-empty="${groupName}"]`);
+
+                let activeCategory = 'all';
+
+                function applyFilters() {
+                    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+                    let visibleCount = 0;
+
+                    items.forEach((item) => {
+                        const itemCat = item.getAttribute('data-category') || '';
+                        const searchHaystack = (item.getAttribute('data-search') || item.textContent || '').toLowerCase();
+                        const catMatch = activeCategory === 'all' || itemCat === activeCategory;
+                        const textMatch = query === '' || searchHaystack.includes(query);
+                        const match = catMatch && textMatch;
+                        item.classList.toggle('hidden', !match);
+                        if (match) visibleCount++;
+                    });
+
+                    if (emptyEl) {
+                        emptyEl.classList.toggle('hidden', visibleCount > 0);
+                    }
+
+                    if (statusEl) {
+                        const label = activeCategory === 'all' ? 'all categories' : activeCategory;
+                        const suffix = query ? ` matching "${query}"` : '';
+                        statusEl.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'item' : 'items'} in ${label}${suffix}.`;
+                    }
+                }
+
+                buttons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        activeCategory = button.getAttribute('data-filter-value') || 'all';
+                        buttons.forEach((btn) => {
+                            const active = btn === button;
+                            btn.setAttribute('aria-pressed', String(active));
+                            btn.classList.toggle('bg-indigo-600', active);
+                            btn.classList.toggle('text-white', active);
+                            btn.classList.toggle('border-indigo-600', active);
+                            btn.classList.toggle('bg-white', !active);
+                            btn.classList.toggle('text-slate-700', !active);
+                            btn.classList.toggle('border-slate-200', !active);
+                        });
+                        applyFilters();
+                    });
+                });
+
+                if (searchInput) {
+                    searchInput.addEventListener('input', applyFilters);
+                }
+            });
+
+            // Copy email with visible & screen-reader feedback
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            const copyEmailStatus = document.getElementById('copy-email-status');
+            if (copyEmailBtn) {
+                copyEmailBtn.addEventListener('click', async () => {
+                    const email = copyEmailBtn.getAttribute('data-copy-email') || '';
+                    try {
+                        await navigator.clipboard.writeText(email);
+                        if (copyEmailStatus) copyEmailStatus.textContent = 'Email copied to clipboard.';
+                        const original = copyEmailBtn.textContent;
+                        copyEmailBtn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyEmailBtn.textContent = original;
+                            if (copyEmailStatus) copyEmailStatus.textContent = '';
+                        }, 2200);
+                    } catch {
+                        if (copyEmailStatus) copyEmailStatus.textContent = 'Could not copy automatically. Email: ' + email;
+                    }
+                });
+            }
+
+            // Accessible Multi-Image Showcase Lightbox
+            const lightbox = document.getElementById('showcase-lightbox');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxMeta = document.getElementById('lightbox-meta');
+
+            let slides = [];
+            let currentIndex = 0;
+            let lastTrigger = null;
+
+            function renderSlide() {
+                if (!slides.length) return;
+                const slide = slides[currentIndex];
+                if (lightboxImg) {
+                    lightboxImg.src = slide.src || '';
+                    lightboxImg.alt = slide.alt || '';
+                }
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = slide.caption || '';
+                }
+                const multi = slides.length > 1;
+                if (lightboxPrev) {
+                    lightboxPrev.classList.toggle('hidden', !multi);
+                    lightboxPrev.classList.toggle('inline-flex', multi);
+                }
+                if (lightboxNext) {
+                    lightboxNext.classList.toggle('hidden', !multi);
+                    lightboxNext.classList.toggle('inline-flex', multi);
+                }
+                if (lightboxCounter) {
+                    lightboxCounter.classList.toggle('hidden', !multi);
+                    lightboxCounter.textContent = `${currentIndex + 1} / ${slides.length}`;
+                }
+            }
+
+            function closeLightbox() {
+                if (!lightbox || lightbox.classList.contains('hidden')) return;
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                if (lastTrigger && typeof lastTrigger.focus === 'function') {
+                    lastTrigger.focus();
+                }
+            }
+
+            if (lightbox && lightboxClose) {
+                document.querySelectorAll('[data-gallery-trigger]').forEach((trigger) => {
+                    trigger.addEventListener('click', () => {
+                        try {
+                            const parsed = JSON.parse(trigger.getAttribute('data-gallery') || '[]');
+                            if (!Array.isArray(parsed) || parsed.length === 0) return;
+                            slides = parsed;
+                        } catch {
+                            return;
+                        }
+
+                        lastTrigger = trigger;
+                        const requestedIndex = parseInt(trigger.getAttribute('data-gallery-index') || '0', 10);
+                        currentIndex = Number.isNaN(requestedIndex) ? 0 : Math.max(0, Math.min(requestedIndex, slides.length - 1));
+
+                        if (lightboxTitle) lightboxTitle.textContent = trigger.getAttribute('data-gallery-title') || '';
+                        if (lightboxMeta) lightboxMeta.textContent = trigger.getAttribute('data-gallery-meta') || '';
+
+                        renderSlide();
+                        lightbox.classList.remove('hidden');
+                        lightbox.classList.add('flex');
+                        document.body.classList.add('overflow-hidden');
+                        lightboxClose.focus();
+                    });
+                });
+
+                if (lightboxPrev) {
+                    lightboxPrev.addEventListener('click', () => {
+                        if (slides.length < 2) return;
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        renderSlide();
+                    });
+                }
+
+                if (lightboxNext) {
+                    lightboxNext.addEventListener('click', () => {
+                        if (slides.length < 2) return;
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        renderSlide();
+                    });
+                }
+
+                lightboxClose.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (event) => {
+                    if (event.target === lightbox) closeLightbox();
+                });
+                document.addEventListener('keydown', (event) => {
+                    if (lightbox.classList.contains('hidden')) return;
+                    if (event.key === 'Escape') {
+                        closeLightbox();
+                    } else if (event.key === 'ArrowLeft' && slides.length > 1) {
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        renderSlide();
+                    } else if (event.key === 'ArrowRight' && slides.length > 1) {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        renderSlide();
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
