@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mhdzulfitriii.github.io/portfolio/sitemap.xml

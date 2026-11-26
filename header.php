@@ -3,12 +3,31 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/includes/data.php';
 
+$siteBaseUrl = 'https://mhdzulfitriii.github.io/portfolio/';
+$siteName = 'Muhammad Zul Fitri — Portfolio';
 $pageTitle = $pageTitle ?? 'Muhammad Zul Fitri — Software Developer & Event Photographer';
-$pageDescription = $pageDescription ?? 'Personal portfolio of Muhammad Zul Fitri bin Mohd Zamri — Computer Science (Software Development) student at UTeM, former Junior Software Developer, and Event Photographer.';
+$pageDescription = $pageDescription ?? 'Personal portfolio of Muhammad Zul Fitri bin Mohd Zamri — Software Development student at UTeM, former Junior Software Developer at HeiTech Padu Berhad, and Event Photographer.';
+$pageKeywords = $pageKeywords ?? 'Muhammad Zul Fitri, Muhammad Zul Fitri bin Mohd Zamri, ZulFitri, Software Developer Malaysia, Event Photographer Malaysia, UTeM Software Development, HeiTech Padu, .NET, Blazor, Laravel, Python OpenCV, PKPIM, Portfolio';
+
 $activePage = $activePage ?? pathinfo((string) ($_SERVER['SCRIPT_NAME'] ?? 'index.php'), PATHINFO_FILENAME);
 if ($activePage === 'index') {
     $activePage = 'home';
 }
+
+$canonicalMap = [
+    'home'        => '',
+    'projects'    => 'projects.html',
+    'experience'  => 'experience.html',
+    'education'   => 'education.html',
+    'photography' => 'photography.html',
+    'volunteer'   => 'volunteer.html',
+];
+$canonicalPath = $canonicalMap[$activePage] ?? '';
+$canonicalUrl = $siteBaseUrl . $canonicalPath;
+
+$ogImageUrl = $siteBaseUrl . 'asset/og-image.jpg';
+$ogImageAlt = 'Muhammad Zul Fitri bin Mohd Zamri — Software Developer & Event Photographer Portfolio';
+$ogType = $activePage === 'home' ? 'profile' : 'website';
 
 $hasResumePdf = local_asset_exists('asset/resume.pdf');
 
@@ -21,6 +40,109 @@ $navItems = [
     ['id' => 'volunteer', 'href' => 'volunteer.php', 'label' => 'Volunteer'],
     ['id' => 'contact', 'href' => 'index.php#contact', 'label' => 'Contact'],
 ];
+
+// Build JSON-LD structured data for rich search results
+$jsonLdGraph = [
+    [
+        '@type' => 'Person',
+        '@id' => $siteBaseUrl . '#person',
+        'name' => 'Muhammad Zul Fitri bin Mohd Zamri',
+        'alternateName' => 'ZulFitri',
+        'url' => $siteBaseUrl,
+        'image' => $siteBaseUrl . 'asset/profile.jpg',
+        'jobTitle' => 'Software Developer & Event Photographer',
+        'email' => 'mailto:zul.ilhae@gmail.com',
+        'telephone' => '+6018-2560 425',
+        'address' => [
+            '@type' => 'PostalAddress',
+            'addressLocality' => 'Bandar Saujana Putra',
+            'addressRegion' => 'Selangor',
+            'addressCountry' => 'MY',
+        ],
+        'alumniOf' => [
+            [
+                '@type' => 'CollegeOrUniversity',
+                'name' => 'Universiti Teknikal Malaysia Melaka (UTeM)',
+            ],
+            [
+                '@type' => 'EducationalOrganization',
+                'name' => 'Politeknik Sultan Mizan Zainal Abidin (PSMZA)',
+            ],
+        ],
+        'memberOf' => [
+            [
+                '@type' => 'Organization',
+                'name' => 'Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM)',
+            ],
+        ],
+        'knowsAbout' => [
+            'Software Development',
+            '.NET',
+            'Blazor',
+            'Laravel',
+            'Python',
+            'OpenCV',
+            'Ultralytics',
+            'Event Photography',
+            'Documentary Photography',
+        ],
+        'sameAs' => [
+            'https://www.linkedin.com/in/mhdzulfitri',
+            'https://github.com/mhdzulfitriii',
+        ],
+    ],
+    [
+        '@type' => 'WebSite',
+        '@id' => $siteBaseUrl . '#website',
+        'url' => $siteBaseUrl,
+        'name' => $siteName,
+        'description' => $pageDescription,
+        'publisher' => ['@id' => $siteBaseUrl . '#person'],
+        'inLanguage' => 'en-MY',
+    ],
+    [
+        '@type' => $activePage === 'home' ? 'ProfilePage' : 'CollectionPage',
+        '@id' => $canonicalUrl . '#webpage',
+        'url' => $canonicalUrl,
+        'name' => $pageTitle,
+        'description' => $pageDescription,
+        'isPartOf' => ['@id' => $siteBaseUrl . '#website'],
+        'about' => ['@id' => $siteBaseUrl . '#person'],
+        'primaryImageOfPage' => [
+            '@type' => 'ImageObject',
+            'url' => $ogImageUrl,
+            'width' => 1200,
+            'height' => 630,
+        ],
+        'inLanguage' => 'en-MY',
+    ],
+];
+
+if ($activePage !== 'home') {
+    $pageLabel = ucfirst($activePage);
+    $jsonLdGraph[] = [
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            [
+                '@type' => 'ListItem',
+                'position' => 1,
+                'name' => 'Home',
+                'item' => $siteBaseUrl,
+            ],
+            [
+                '@type' => 'ListItem',
+                'position' => 2,
+                'name' => $pageLabel,
+                'item' => $canonicalUrl,
+            ],
+        ],
+    ];
+}
+
+$jsonLdPayload = json_encode(
+    ['@context' => 'https://schema.org', '@graph' => $jsonLdGraph],
+    JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+);
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth motion-reduce:scroll-auto">
@@ -28,8 +150,43 @@ $navItems = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?= e($pageDescription) ?>">
     <title><?= e($pageTitle) ?></title>
+    <meta name="description" content="<?= e($pageDescription) ?>">
+    <meta name="keywords" content="<?= e($pageKeywords) ?>">
+    <meta name="author" content="Muhammad Zul Fitri bin Mohd Zamri">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="<?= e($canonicalUrl) ?>">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="asset/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/apple-touch-icon.png">
+
+    <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
+    <meta property="og:type" content="<?= e($ogType) ?>">
+    <meta property="og:site_name" content="<?= e($siteName) ?>">
+    <meta property="og:locale" content="en_MY">
+    <meta property="og:url" content="<?= e($canonicalUrl) ?>">
+    <meta property="og:title" content="<?= e($pageTitle) ?>">
+    <meta property="og:description" content="<?= e($pageDescription) ?>">
+    <meta property="og:image" content="<?= e($ogImageUrl) ?>">
+    <meta property="og:image:secure_url" content="<?= e($ogImageUrl) ?>">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="<?= e($ogImageAlt) ?>">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?= e($canonicalUrl) ?>">
+    <meta name="twitter:title" content="<?= e($pageTitle) ?>">
+    <meta name="twitter:description" content="<?= e($pageDescription) ?>">
+    <meta name="twitter:image" content="<?= e($ogImageUrl) ?>">
+    <meta name="twitter:image:alt" content="<?= e($ogImageAlt) ?>">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json"><?= $jsonLdPayload ?></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
