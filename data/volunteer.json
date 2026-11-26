@@ -1,0 +1,196 @@
+[
+  {
+    "id": "vol-msealp",
+    "program_name": "MADANI Sea Leadership Programme (MSEALP)",
+    "position": "Photographer",
+    "program_date": "2025",
+    "place": "Malaysia",
+    "organizer": "WADAH Malaysia",
+    "category": "Regional & ASEAN",
+    "summary": "Served as the official photographer for a high-level regional programme organized by WADAH Malaysia, covering delegates from across ASEAN and formal events attended by national leadership.",
+    "highlights": [
+      "Captured key moments for delegates representing Muslim NGOs from across ASEAN countries.",
+      "Provided official photography for high-profile dinner events attended by the Minister in the Prime Minister's Department (Religious Affairs) and the Menteri Besar of Selangor.",
+      "Provided professional photography coverage for the Kolokium featuring the Prime Minister of Malaysia.",
+      "Managed photography workflows in fast-paced, formal environments with government officials and international dignitaries."
+    ],
+    "image": "asset/volunteer/msealp.svg",
+    "image_alt": "Showcase cover for MADANI Sea Leadership Programme (MSEALP)",
+    "gallery": [
+      {
+        "src": "asset/volunteer/msealp.svg",
+        "alt": "Showcase cover for MADANI Sea Leadership Programme (MSEALP)",
+        "caption": "Official volunteer photography for the MADANI Sea Leadership Programme (MSEALP), organized by WADAH Malaysia."
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "vol-konvensyen-generasi-madani-2025",
+    "program_name": "Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025",
+    "position": "Photographer",
+    "program_date": "2025",
+    "place": "Malaysia",
+    "organizer": "National Pre-University Programme",
+    "category": "National",
+    "summary": "Documented national-level pre-university convention sessions, keynote speeches, and youth engagement activities.",
+    "highlights": [],
+    "image": "asset/volunteer/konvensyen-madani-2025.svg",
+    "image_alt": "Showcase cover for Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025",
+    "gallery": [
+      {
+        "src": "asset/volunteer/konvensyen-madani-2025.svg",
+        "alt": "Showcase cover for Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025",
+        "caption": "Volunteer photographer at Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025."
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "vol-asean-muslim-youth-gathering",
+    "program_name": "ASEAN Muslim Youth Gathering",
+    "position": "Photographer",
+    "program_date": "2025",
+    "place": "Malaysia",
+    "organizer": "Regional Youth Programme",
+    "category": "Regional & ASEAN",
+    "summary": "Provided event photography coverage for regional youth delegates participating in dialogues and collaborative workshops.",
+    "highlights": [],
+    "image": "asset/volunteer/asean-youth.svg",
+    "image_alt": "Showcase cover for ASEAN Muslim Youth Gathering",
+    "gallery": [
+      {
+        "src": "asset/volunteer/asean-youth.svg",
+        "alt": "Showcase cover for ASEAN Muslim Youth Gathering",
+        "caption": "Event photography coverage at the ASEAN Muslim Youth Gathering."
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "vol-dialog-mahasiswa-asean",
+    "program_name": "Dialog Mahasiswa ASEAN bersama Timbalan Menteri Pendidikan Tinggi",
+    "position": "Photographer",
+    "program_date": "2025",
+    "place": "Malaysia",
+    "organizer": "ASEAN Student Dialogue",
+    "category": "Regional & ASEAN",
+    "summary": "Captured official moments during the ASEAN student dialogue session with the Deputy Minister of Higher Education.",
+    "highlights": [],
+    "image": "asset/volunteer/dialog-mahasiswa.svg",
+    "image_alt": "Showcase cover for Dialog Mahasiswa ASEAN bersama Timbalan Menteri Pendidikan Tinggi",
+    "gallery": [
+      {
+        "src": "asset/volunteer/dialog-mahasiswa.svg",
+        "alt": "Showcase cover for Dialog Mahasiswa ASEAN bersama Timbalan Menteri Pendidikan Tinggi",
+        "caption": "Volunteer photography for Dialog Mahasiswa ASEAN bersama Timbalan Menteri Pendidikan Tinggi."
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "vol-global-madani-outreach-jakarta-2024",
+    "program_name": "Global MADANI Outreach 2024, Jakarta",
+    "position": "Photographer",
+    "program_date": "2024",
+    "place": "Jakarta, Indonesia",
+    "organizer": "International Outreach",
+    "category": "International",
+    "summary": "Volunteered as programme photographer in Jakarta, documenting international community outreach and youth delegations.",
+    "highlights": [],
+    "image": "asset/volunteer/jakarta-2024.svg",
+    "image_alt": "Showcase cover for Global MADANI Outreach 2024 in Jakarta",
+    "gallery": [
+      {
+        "src": "asset/volunteer/jakarta-2024.svg",
+        "alt": "Showcase cover for Global MADANI Outreach 2024 in Jakarta",
+        "caption": "International volunteer photography for Global MADANI Outreach 2024 in Jakarta, Indonesia."
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "vol-mpat-pkpim-2024",
+    "program_name": "Majlis Perhimpunan Agung Tahunan Persatuan Kebangsaan Pelajar Islam Malaysia 2024",
+    "position": "Photographer",
+    "program_date": "2024",
+    "place": "Malaysia",
+    "organizer": "PKPIM",
+    "category": "Youth & NGO",
+    "summary": "Official photography coverage for PKPIM's 2024 Annual General Assembly.",
+    "highlights": [],
+    "image": "asset/volunteer/mpat-pkpim-2024.svg",
+    "image_alt": "Showcase cover for Majlis Perhimpunan Agung Tahunan PKPIM 2024",
+    "gallery": [
+      {
+        "src": "asset/volunteer/mpat-pkpim-2024.svg",
+        "alt": "Showcase cover for Majlis Perhimpunan Agung Tahunan PKPIM 2024",
+        "caption": "Photography coverage at Majlis Perhimpunan Agung Tahunan PKPIM 2024."
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "vol-pat-majlis-belia-selangor",
+    "program_name": "Perhimpunan Agung Tahunan, Majlis Belia Selangor",
+    "position": "Photographer",
+    "program_date": "2024",
+    "place": "Selangor, Malaysia",
+    "organizer": "Majlis Belia Selangor",
+    "category": "Youth & NGO",
+    "summary": "Documented the annual general assembly proceedings and delegate activities for the Selangor Youth Council.",
+    "highlights": [],
+    "image": "asset/volunteer/mbs-pat.svg",
+    "image_alt": "Showcase cover for Perhimpunan Agung Tahunan Majlis Belia Selangor",
+    "gallery": [
+      {
+        "src": "asset/volunteer/mbs-pat.svg",
+        "alt": "Showcase cover for Perhimpunan Agung Tahunan Majlis Belia Selangor",
+        "caption": "Volunteer photographer for Perhimpunan Agung Tahunan, Majlis Belia Selangor."
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "vol-muktamar-sanawi-pkpim",
+    "program_name": "Muktamar Sanawi Persatuan Kebangsaan Pelajar Islam Malaysia",
+    "position": "Photographer",
+    "program_date": "2024",
+    "place": "Malaysia",
+    "organizer": "PKPIM",
+    "category": "Youth & NGO",
+    "summary": "Covered keynote sessions, leadership transitions, and delegate moments during PKPIM's annual Muktamar Sanawi.",
+    "highlights": [],
+    "image": "asset/volunteer/muktamar-pkpim.svg",
+    "image_alt": "Showcase cover for Muktamar Sanawi PKPIM",
+    "gallery": [
+      {
+        "src": "asset/volunteer/muktamar-pkpim.svg",
+        "alt": "Showcase cover for Muktamar Sanawi PKPIM",
+        "caption": "Event photography at Muktamar Sanawi Persatuan Kebangsaan Pelajar Islam Malaysia."
+      }
+    ],
+    "featured": false
+  },
+  {
+    "id": "vol-perkampungan-menara-gading-2023",
+    "program_name": "Perkampungan Menara Gading Selangor 2023",
+    "position": "Photographer",
+    "program_date": "2023",
+    "place": "Selangor, Malaysia",
+    "organizer": "Selangor Student Leadership Programme",
+    "category": "Youth & NGO",
+    "summary": "Volunteered as programme photographer capturing student workshops, mentorship sessions, and candid moments.",
+    "highlights": [],
+    "image": "asset/volunteer/menara-gading-2023.svg",
+    "image_alt": "Showcase cover for Perkampungan Menara Gading Selangor 2023",
+    "gallery": [
+      {
+        "src": "asset/volunteer/menara-gading-2023.svg",
+        "alt": "Showcase cover for Perkampungan Menara Gading Selangor 2023",
+        "caption": "Volunteer photography for Perkampungan Menara Gading Selangor 2023."
+      }
+    ],
+    "featured": false
+  }
+]

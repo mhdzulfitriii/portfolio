@@ -1,0 +1,67 @@
+[
+  {
+    "id": "utem-bcs-sd",
+    "institution": "Universiti Teknikal Malaysia Melaka (UTeM)",
+    "degree": "Bachelor of Computer Science (Software Development)",
+    "faculty": "",
+    "location": "Melaka, Malaysia",
+    "start_date": "2025",
+    "end_date": null,
+    "is_current": true,
+    "grade": null,
+    "image": "asset/education/utem-bcs.svg",
+    "image_alt": "Showcase cover for Bachelor of Computer Science (Software Development) at UTeM",
+    "gallery": [
+      {
+        "src": "asset/education/utem-bcs.svg",
+        "alt": "Showcase cover for Bachelor of Computer Science (Software Development) at UTeM",
+        "caption": "Pursuing Bachelor of Computer Science (Software Development) at UTeM as a YBTM KPT – PCP Scholar."
+      }
+    ],
+    "coursework": [],
+    "achievements": [
+      "Biasiswa Yang Berhormat Menteri Pendidikan Tinggi - Pelajar Cemerlang Politeknik"
+    ]
+  },
+  {
+    "id": "psmza-dit",
+    "institution": "Politeknik Sultan Mizan Zainal Abidin (PSMZA)",
+    "degree": "Diploma of Information Technology (Digital Technology)",
+    "faculty": "",
+    "location": "Malaysia",
+    "start_date": "2021",
+    "end_date": "2024",
+    "is_current": false,
+    "grade": "CGPA 3.62",
+    "image": "asset/education/psmza-diploma.svg",
+    "image_alt": "Showcase cover for Diploma of Information Technology at PSMZA",
+    "gallery": [
+      {
+        "src": "asset/education/psmza1.jpeg",
+        "alt": "Showcase cover for Diploma of Information Technology at PSMZA",
+        "caption": "Graduated from PSMZA with CGPA 3.62 and three academic & co-curricular excellence awards in 2025."
+      },
+      {
+        "src": "asset/education/psmza2.jpeg",
+        "alt": "Showcase cover for Diploma of Information Technology at PSMZA",
+        "caption": "Graduated from PSMZA with CGPA 3.62 and three academic & co-curricular excellence awards in 2025."
+      },
+      {
+        "src": "asset/education/psmza3.jpeg",
+        "alt": "Showcase cover for Diploma of Information Technology at PSMZA",
+        "caption": "Graduated from PSMZA with CGPA 3.62 and three academic & co-curricular excellence awards in 2025."
+      },
+      {
+        "src": "asset/education/psmza4.jpeg",
+        "alt": "Showcase cover for Diploma of Information Technology at PSMZA",
+        "caption": "Graduated from PSMZA with CGPA 3.62 and three academic & co-curricular excellence awards in 2025."
+      }
+    ],
+    "coursework": [],
+    "achievements": [
+      "Anugerah Pengarah Politeknik (2025)",
+      "Anugerah Kecemerlangan Akademik & Kokurikulum (2025)",
+      "Anugerah Pingat Ketua Jabatan (2025)"
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "heitech-junior-software-dev",
+    "role": "Junior Software Developer",
+    "organization": "HeiTech Padu Berhad",
+    "type": "Full-time",
+    "location": "Malaysia",
+    "start_date": "2024",
+    "end_date": "2025",
+    "is_current": false,
+    "image": "asset/experience/heitech.png",
+    "image_alt": "Showcase cover for Junior Software Developer role at HeiTech Padu Berhad",
+    "gallery": [
+      {
+        "src": "asset/experience/heitech-junior-dev.svg",
+        "alt": "Showcase cover for Junior Software Developer role at HeiTech Padu Berhad",
+        "caption": "Developing customer-facing .NET and Blazor systems at HeiTech Padu Berhad (2024–2025)."
+      }
+    ],
+    "summary": "Designed, developed, and tested customer-facing enterprise software systems using .NET and Blazor frameworks.",
+    "highlights": [
+      "Designed and developed customer-facing systems utilizing .NET and Blazor frameworks to meet specific business objectives.",
+      "Analyzed and interpreted complex technical specifications and customer requirements to build functional, user-centric software solutions.",
+      "Utilized OpenProject for bug tracking and task management, ensuring timely resolution of software defects and maintaining high system reliability.",
+      "Maintained a high standard of precision in coding and system testing, a skill directly transferable to high-end digital photo editing and technical camera work."
+    ],
+    "skills": [
+      ".NET",
+      "Blazor",
+      "OpenProject",
+      "Requirements Analysis",
+      "System Testing"
+    ]
+  },
+  {
+    "id": "heitech-software-dev-trainee",
+    "role": "Software Developer Trainee (Internship)",
+    "organization": "HeiTech Padu Berhad",
+    "type": "Internship",
+    "location": "Malaysia",
+    "start_date": "2024",
+    "end_date": "2024",
+    "is_current": false,
+    "image": "asset/experience/heitech.png",
+    "image_alt": "Showcase cover for Software Developer Trainee internship at HeiTech Padu Berhad",
+    "gallery": [
+      {
+        "src": "asset/experience/heitech-intern.svg",
+        "alt": "Showcase cover for Software Developer Trainee internship at HeiTech Padu Berhad",
+        "caption": "Engineering smart parking web and computer vision solutions during internship at HeiTech Padu Berhad (2024)."
+      }
+    ],
+    "summary": "Built a Laravel smart parking web application and a computer vision occupancy detection system.",
+    "highlights": [
+      "Engineered a smart parking web application using Laravel, enhancing parking management efficiency.",
+      "Developed and deployed a car parking occupancy detection system utilizing Python, OpenCV, and Ultralytics, improving real-time monitoring accuracy."
+    ],
+    "skills": [
+      "Laravel",
+      "Python",
+      "OpenCV",
+      "Ultralytics",
+      "Computer Vision"
+    ]
+  }
+]

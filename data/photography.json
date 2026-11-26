@@ -1,0 +1,233 @@
+[
+    {
+        "id": "makan-malam-apresiasi",
+        "title": "Majlis Makan Malam Apresiasi 3 Generasi",
+        "caption": "Official event photographer for WADAH Malaysia's high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister's Department (Religious Affairs) and the Menteri Besar of Selangor.",
+        "alt": "Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP) organized by WADAH Malaysia",
+        "src": "asset/photography/makan-malam/M (1).jpeg",
+        "gallery": [
+            {
+                "src": "asset/photography/makan-malam/M (1).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (2).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (3).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (4).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (5).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (6).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (7).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (8).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (9).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (10).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (11).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (12).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (13).jpg"
+            },
+            {
+                "src": "asset/photography/makan-malam/M (14).jpg"
+            }
+        ],
+        "category": "Regional & VIP",
+        "location": "Malaysia",
+        "date": "2025",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": true
+    },
+    {
+        "id": "msealp-wadah-malaysia",
+        "title": "MADANI Sea Leadership Programme (MSEALP)",
+        "caption": "Official event photographer for WADAH Malaysia's high-level ASEAN programme, covering the Kolokium featuring the Prime Minister of Malaysia and formal dinners with the Minister in the Prime Minister's Department (Religious Affairs) and the Menteri Besar of Selangor.",
+        "alt": "Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP) organized by WADAH Malaysia",
+        "src": "asset/photography/msealp.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/msealp.svg",
+                "alt": "Official event photography coverage at the MADANI Sea Leadership Programme (MSEALP)",
+                "caption": "High-level regional ASEAN programme organized by WADAH Malaysia, including the Kolokium featuring the Prime Minister of Malaysia."
+            }
+        ],
+        "category": "Regional & VIP",
+        "location": "Malaysia",
+        "date": "2025",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": true
+    },
+    {
+        "id": "konvensyen-pra-u-generasi-madani-2025",
+        "title": "Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025",
+        "caption": "National-level pre-university convention photography capturing keynote sessions, student engagement, and candid moments.",
+        "alt": "Photography coverage at Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025",
+        "src": "asset/photography/konvensyen-madani-2025.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/konvensyen-madani-2025.svg",
+                "alt": "Photography coverage at Konvensyen Pra-Universiti Generasi MADANI Peringkat Kebangsaan 2025",
+                "caption": "National-level convention photography capturing keynote sessions and student engagement."
+            }
+        ],
+        "category": "National Convention",
+        "location": "Malaysia",
+        "date": "2025",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": true
+    },
+    {
+        "id": "asean-muslim-youth-gathering",
+        "title": "ASEAN Muslim Youth Gathering",
+        "caption": "Documenting regional youth delegates, panel dialogues, and cross-cultural moments across ASEAN.",
+        "alt": "Event photography from the ASEAN Muslim Youth Gathering",
+        "src": "asset/photography/asean-youth.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/asean-youth.svg",
+                "alt": "Event photography from the ASEAN Muslim Youth Gathering",
+                "caption": "Documenting regional youth delegates and cross-cultural moments across ASEAN."
+            }
+        ],
+        "category": "Regional & VIP",
+        "location": "ASEAN",
+        "date": "2025",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": true
+    },
+    {
+        "id": "dialog-mahasiswa-asean-tmpt",
+        "title": "Dialog Mahasiswa ASEAN bersama Timbalan Menteri Pendidikan Tinggi",
+        "caption": "Official dialogue coverage featuring ASEAN university students and the Deputy Minister of Higher Education.",
+        "alt": "Photography coverage for Dialog Mahasiswa ASEAN bersama Timbalan Menteri Pendidikan Tinggi",
+        "src": "asset/photography/dialog-mahasiswa.svg",
+        "gallery": [],
+        "category": "Regional & VIP",
+        "location": "Malaysia",
+        "date": "2025",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": true
+    },
+    {
+        "id": "global-madani-outreach-jakarta-2024",
+        "title": "Global MADANI Outreach 2024, Jakarta",
+        "caption": "International outreach photography in Jakarta capturing community engagement, delegation visits, and candid storytelling.",
+        "alt": "International event photography at Global MADANI Outreach 2024 in Jakarta",
+        "src": "asset/photography/jakarta-2024.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/jakarta-2024.svg",
+                "alt": "International event photography at Global MADANI Outreach 2024 in Jakarta",
+                "caption": "International outreach photography in Jakarta capturing community engagement and delegation visits."
+            }
+        ],
+        "category": "International",
+        "location": "Jakarta, Indonesia",
+        "date": "2024",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": true
+    },
+    {
+        "id": "mpat-pkpim-2024",
+        "title": "Majlis Perhimpunan Agung Tahunan PKPIM 2024",
+        "caption": "Annual general assembly photography for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM).",
+        "alt": "Event photography at Majlis Perhimpunan Agung Tahunan PKPIM 2024",
+        "src": "asset/photography/mpat-pkpim-2024.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/mpat-pkpim-2024.svg",
+                "alt": "Event photography at Majlis Perhimpunan Agung Tahunan PKPIM 2024",
+                "caption": "Annual general assembly photography for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM)."
+            }
+        ],
+        "category": "Youth & Community",
+        "location": "Malaysia",
+        "date": "2024",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": false
+    },
+    {
+        "id": "pat-majlis-belia-selangor",
+        "title": "Perhimpunan Agung Tahunan, Majlis Belia Selangor",
+        "caption": "Coverage of the annual general assembly for the Selangor Youth Council.",
+        "alt": "Photography coverage for Perhimpunan Agung Tahunan Majlis Belia Selangor",
+        "src": "asset/photography/mbs-pat.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/mbs-pat.svg",
+                "alt": "Photography coverage for Perhimpunan Agung Tahunan Majlis Belia Selangor",
+                "caption": "Coverage of the annual general assembly for the Selangor Youth Council."
+            }
+        ],
+        "category": "Youth & Community",
+        "location": "Selangor, Malaysia",
+        "date": "2024",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": false
+    },
+    {
+        "id": "muktamar-sanawi-pkpim",
+        "title": "Muktamar Sanawi Persatuan Kebangsaan Pelajar Islam Malaysia",
+        "caption": "Fast-paced documentation of annual conference proceedings, keynote speeches, and delegate interactions.",
+        "alt": "Conference photography at Muktamar Sanawi PKPIM",
+        "src": "asset/photography/muktamar-pkpim.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/muktamar-pkpim.svg",
+                "alt": "Conference photography at Muktamar Sanawi PKPIM",
+                "caption": "Fast-paced documentation of annual conference proceedings and delegate interactions."
+            }
+        ],
+        "category": "Youth & Community",
+        "location": "Malaysia",
+        "date": "2024",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": false
+    },
+    {
+        "id": "perkampungan-menara-gading-selangor-2023",
+        "title": "Perkampungan Menara Gading Selangor 2023",
+        "caption": "Candid and documentary photography for Selangor's student leadership and pre-university programme.",
+        "alt": "Documentary photography at Perkampungan Menara Gading Selangor 2023",
+        "src": "asset/photography/menara-gading-2023.svg",
+        "gallery": [
+            {
+                "src": "asset/photography/menara-gading-2023.svg",
+                "alt": "Documentary photography at Perkampungan Menara Gading Selangor 2023",
+                "caption": "Candid and documentary photography for Selangor's student leadership and pre-university programme."
+            }
+        ],
+        "category": "Youth & Community",
+        "location": "Selangor, Malaysia",
+        "date": "2023",
+        "camera": null,
+        "aspect_ratio": "4/3",
+        "featured": false
+    }
+]

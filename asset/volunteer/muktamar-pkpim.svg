@@ -1,0 +1,23 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Muktamar Sanawi PKPIM">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f5f3ff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#cbd5e1" opacity="0.65"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect width="960" height="600" fill="url(#dots)"/>
+  <circle cx="840" cy="490" r="190" fill="#7c3aed" opacity="0.06"/>
+  <g transform="translate(655, 95)" opacity="0.16" stroke="#7c3aed" stroke-width="6" fill="none"><path d="M105,170 C105,170 20,120 20,62 C20,30 46,10 74,10 C92,10 105,24 105,36 C105,24 118,10 136,10 C164,10 190,30 190,62 C190,120 105,170 105,170 Z"/></g>
+  <rect x="64" y="80" width="280" height="38" rx="19" fill="#f5f3ff" stroke="#7c3aed" stroke-opacity="0.28"/>
+  <text x="86" y="104" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#7c3aed" letter-spacing="0.8">PHOTOGRAPHER · 2024</text>
+  <text x="64" y="210" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="38" font-weight="700" fill="#0f172a">Muktamar Sanawi PKPIM</text>
+  <text x="64" y="262" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#475569">Persatuan Kebangsaan Pelajar Islam Malaysia</text>
+  <line x1="64" y1="472" x2="896" y2="472" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="64" y="514" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#64748b">Muhammad Zul Fitri — Volunteer &amp; NGO Showcase</text>
+  <text x="896" y="514" text-anchor="end" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="15" font-weight="500" fill="#94a3b8">Replace with photo in asset/</text>
+</svg>
