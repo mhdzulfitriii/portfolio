@@ -99,100 +99,108 @@ include __DIR__ . '/header.php';
                         $searchBlob = implode(' ', array_merge([$title, (string) ($project['description'] ?? ''), (string) ($project['category'] ?? '')], $tags));
                         ?>
                         <article
+                            data-lazy-card
                             data-filter-item="projects"
                             data-category="<?= e($project['category'] ?? '') ?>"
                             data-search="<?= e($searchBlob) ?>"
                             class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
-                            <?php if ($cover !== null): ?>
-                                <button
-                                    type="button"
-                                    data-gallery-trigger
-                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                    data-gallery-index="0"
-                                    data-gallery-title="<?= e($title) ?>"
-                                    data-gallery-meta="<?= e($meta) ?>"
-                                    class="relative aspect-video w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    <img
-                                        src="<?= e($cover['src']) ?>"
-                                        alt="<?= e($cover['alt']) ?>"
-                                        loading="lazy"
-                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
-                                    <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
-                                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-                                        </svg>
-                                        <span><?= count($gallery) > 1 ? e(count($gallery)) . ' Images' : 'View Showcase' ?></span>
-                                    </span>
-                                </button>
+                            <?= render_card_skeleton('card', 'aspect-video', count($gallery) > 1) ?>
+                            <div data-lazy-content class="flex flex-1 flex-col">
+                                <?php if ($cover !== null): ?>
+                                    <button
+                                        type="button"
+                                        data-gallery-trigger
+                                        data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                        data-gallery-index="0"
+                                        data-gallery-title="<?= e($title) ?>"
+                                        data-gallery-meta="<?= e($meta) ?>"
+                                        class="lazy-media-wrap relative aspect-video w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        <?= render_media_skeleton() ?>
+                                        <img
+                                            src="<?= e($cover['src']) ?>"
+                                            alt="<?= e($cover['alt']) ?>"
+                                            data-lazy-img
+                                            loading="lazy"
+                                            decoding="async"
+                                            class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                        <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
+                                            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                            </svg>
+                                            <span><?= count($gallery) > 1 ? e(count($gallery)) . ' Images' : 'View Showcase' ?></span>
+                                        </span>
+                                    </button>
 
-                                <?php if (count($gallery) > 1): ?>
-                                    <div class="flex gap-2 overflow-x-auto border-b border-slate-100 bg-slate-50 px-4 py-2.5">
-                                        <?php foreach ($gallery as $idx => $slide): ?>
-                                            <button
-                                                type="button"
-                                                data-gallery-trigger
-                                                data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                                data-gallery-index="<?= e($idx) ?>"
-                                                data-gallery-title="<?= e($title) ?>"
-                                                data-gallery-meta="<?= e($meta) ?>"
-                                                class="h-12 w-18 shrink-0 cursor-pointer overflow-hidden rounded-lg border border-slate-200 bg-white transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                                <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" loading="lazy" class="h-full w-full object-cover">
-                                            </button>
-                                        <?php endforeach; ?>
+                                    <?php if (count($gallery) > 1): ?>
+                                        <div class="flex gap-2 overflow-x-auto border-b border-slate-100 bg-slate-50 px-4 py-2.5">
+                                            <?php foreach ($gallery as $idx => $slide): ?>
+                                                <button
+                                                    type="button"
+                                                    data-gallery-trigger
+                                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                                    data-gallery-index="<?= e($idx) ?>"
+                                                    data-gallery-title="<?= e($title) ?>"
+                                                    data-gallery-meta="<?= e($meta) ?>"
+                                                    class="lazy-media-wrap h-12 w-18 shrink-0 cursor-pointer overflow-hidden rounded-lg border border-slate-200 bg-white transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <?= render_media_skeleton('rounded-lg') ?>
+                                                    <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" data-lazy-img loading="lazy" decoding="async" class="h-full w-full object-cover">
+                                                </button>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+                                <div class="flex flex-1 flex-col p-6">
+                                    <div class="flex items-center justify-between gap-2 text-xs">
+                                        <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
+                                            <?= e($project['category'] ?? 'Project') ?>
+                                        </span>
+                                        <span class="font-medium text-slate-500"><?= e($project['year'] ?? '') ?></span>
                                     </div>
-                                <?php endif; ?>
-                            <?php endif; ?>
 
-                            <div class="flex flex-1 flex-col p-6">
-                                <div class="flex items-center justify-between gap-2 text-xs">
-                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
-                                        <?= e($project['category'] ?? 'Project') ?>
-                                    </span>
-                                    <span class="font-medium text-slate-500"><?= e($project['year'] ?? '') ?></span>
-                                </div>
+                                    <h2 class="mt-3 text-xl font-semibold text-slate-900"><?= e($title) ?></h2>
+                                    <?php if (!empty($project['role'])): ?>
+                                        <p class="mt-1 text-xs font-medium text-slate-500"><?= e($project['role']) ?></p>
+                                    <?php endif; ?>
 
-                                <h2 class="mt-3 text-xl font-semibold text-slate-900"><?= e($title) ?></h2>
-                                <?php if (!empty($project['role'])): ?>
-                                    <p class="mt-1 text-xs font-medium text-slate-500"><?= e($project['role']) ?></p>
-                                <?php endif; ?>
+                                    <p class="mt-3 text-sm leading-6 text-slate-600">
+                                        <?= e($project['description'] ?? ($project['tagline'] ?? '')) ?>
+                                    </p>
 
-                                <p class="mt-3 text-sm leading-6 text-slate-600">
-                                    <?= e($project['description'] ?? ($project['tagline'] ?? '')) ?>
-                                </p>
-
-                                <?php if (!empty($highlights)): ?>
-                                    <ul class="mt-4 space-y-1.5 text-sm leading-6 text-slate-600">
-                                        <?php foreach ($highlights as $point): ?>
-                                            <li class="flex items-start gap-2">
-                                                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
-                                                <span><?= e($point) ?></span>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php endif; ?>
-
-                                <div class="mt-auto pt-5">
-                                    <?php if (!empty($tags)): ?>
-                                        <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
-                                            <?php foreach ($tags as $tag): ?>
-                                                <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"><?= e($tag) ?></li>
+                                    <?php if (!empty($highlights)): ?>
+                                        <ul class="mt-4 space-y-1.5 text-sm leading-6 text-slate-600">
+                                            <?php foreach ($highlights as $point): ?>
+                                                <li class="flex items-start gap-2">
+                                                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" aria-hidden="true"></span>
+                                                    <span><?= e($point) ?></span>
+                                                </li>
                                             <?php endforeach; ?>
                                         </ul>
                                     <?php endif; ?>
 
-                                    <?php if ($liveUrl || $repoUrl || $caseUrl): ?>
-                                        <div class="mt-4 flex flex-wrap gap-4 border-t border-slate-100 pt-4 text-xs font-semibold">
-                                            <?php if ($liveUrl): ?>
-                                                <a href="<?= e($liveUrl) ?>" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Live Demo &rarr;</a>
-                                            <?php endif; ?>
-                                            <?php if ($repoUrl): ?>
-                                                <a href="<?= e($repoUrl) ?>" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Source Code &rarr;</a>
-                                            <?php endif; ?>
-                                            <?php if ($caseUrl): ?>
-                                                <a href="<?= e($caseUrl) ?>" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Case Study &rarr;</a>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
+                                    <div class="mt-auto pt-5">
+                                        <?php if (!empty($tags)): ?>
+                                            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies used">
+                                                <?php foreach ($tags as $tag): ?>
+                                                    <li class="rounded-md bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"><?= e($tag) ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php endif; ?>
+
+                                        <?php if ($liveUrl || $repoUrl || $caseUrl): ?>
+                                            <div class="mt-4 flex flex-wrap gap-4 border-t border-slate-100 pt-4 text-xs font-semibold">
+                                                <?php if ($liveUrl): ?>
+                                                    <a href="<?= e($liveUrl) ?>" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Live Demo &rarr;</a>
+                                                <?php endif; ?>
+                                                <?php if ($repoUrl): ?>
+                                                    <a href="<?= e($repoUrl) ?>" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Source Code &rarr;</a>
+                                                <?php endif; ?>
+                                                <?php if ($caseUrl): ?>
+                                                    <a href="<?= e($caseUrl) ?>" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Case Study &rarr;</a>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </article>

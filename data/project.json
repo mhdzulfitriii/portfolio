@@ -89,8 +89,8 @@
     },
     {
         "id": "customer-facing-blazor-systems",
-        "title": "Customer-Facing Enterprise Web Systems",
-        "tagline": "User-centric business web applications built with .NET and Blazor.",
+        "title": "KPD ACCESS",
+        "tagline": "Koperasi Polis Diraja Malaysia (KPDRM)",
         "description": "Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.",
         "category": "Web App",
         "role": "Junior Software Developer",
@@ -107,7 +107,7 @@
             {
                 "src": "asset/projects/blazor-systems.svg",
                 "alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
-                "caption": "Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad."
+                "caption": "Koperasi Polis Diraja Malaysia (KPDRM)"
             }
         ],
         "highlights": [

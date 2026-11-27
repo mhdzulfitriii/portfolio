@@ -128,10 +128,16 @@ include __DIR__ . '/header.php';
                     <div class="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/70 p-6 shadow-xs sm:p-7">
                         <div class="flex items-center gap-4">
                             <?php if ($profileImage !== null): ?>
-                                <img
-                                    src="<?= e($profileImage) ?>"
-                                    alt="Portrait of Muhammad Zul Fitri bin Mohd Zamri"
-                                    class="h-20 w-20 shrink-0 rounded-2xl border border-slate-200 object-cover shadow-xs">
+                                <div class="lazy-media-wrap h-20 w-20 shrink-0 rounded-2xl border border-slate-200 shadow-xs">
+                                    <?= render_media_skeleton('rounded-2xl') ?>
+                                    <img
+                                        src="<?= e($profileImage) ?>"
+                                        alt="Portrait of Muhammad Zul Fitri bin Mohd Zamri"
+                                        data-lazy-img
+                                        decoding="async"
+                                        fetchpriority="high"
+                                        class="h-full w-full object-cover">
+                                </div>
                             <?php else: ?>
                                 <div
                                     class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-2xl font-bold tracking-tight text-white shadow-xs"
@@ -197,28 +203,35 @@ include __DIR__ . '/header.php';
                 <?php foreach ($showcasePages as $card): ?>
                     <a
                         href="<?= e($card['href']) ?>"
+                        data-lazy-card
                         class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        <?php if ($card['cover'] !== null): ?>
-                            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                                <img
-                                    src="<?= e($card['cover']['src']) ?>"
-                                    alt="<?= e($card['cover']['alt']) ?>"
-                                    loading="lazy"
-                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                        <?= render_card_skeleton('card', 'aspect-[16/10]') ?>
+                        <div data-lazy-content class="flex flex-1 flex-col">
+                            <?php if ($card['cover'] !== null): ?>
+                                <div class="lazy-media-wrap aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                                    <?= render_media_skeleton() ?>
+                                    <img
+                                        src="<?= e($card['cover']['src']) ?>"
+                                        alt="<?= e($card['cover']['alt']) ?>"
+                                        data-lazy-img
+                                        loading="lazy"
+                                        decoding="async"
+                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                </div>
+                            <?php endif; ?>
+                            <div class="flex flex-1 flex-col p-5">
+                                <span class="text-xs font-semibold text-indigo-600"><?= e($card['count']) ?></span>
+                                <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
+                                    <?= e($card['title']) ?>
+                                </h3>
+                                <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                    <?= e($card['description']) ?>
+                                </p>
+                                <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
+                                    Open Showcase
+                                    <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
+                                </span>
                             </div>
-                        <?php endif; ?>
-                        <div class="flex flex-1 flex-col p-5">
-                            <span class="text-xs font-semibold text-indigo-600"><?= e($card['count']) ?></span>
-                            <h3 class="mt-1 text-base font-semibold text-slate-900 group-hover:text-indigo-700">
-                                <?= e($card['title']) ?>
-                            </h3>
-                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
-                                <?= e($card['description']) ?>
-                            </p>
-                            <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600">
-                                Open Showcase
-                                <span aria-hidden="true" class="transition-transform motion-safe:group-hover:translate-x-0.5">&rarr;</span>
-                            </span>
                         </div>
                     </a>
                 <?php endforeach; ?>
@@ -253,31 +266,37 @@ include __DIR__ . '/header.php';
                         format_date_label(isset($photo['date']) ? (string) $photo['date'] : null),
                     ]));
                     ?>
-                    <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
-                        <?php if ($cover !== null): ?>
-                            <button
-                                type="button"
-                                data-gallery-trigger
-                                data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                data-gallery-index="0"
-                                data-gallery-title="<?= e($photo['title'] ?? '') ?>"
-                                data-gallery-meta="<?= e($metaString) ?>"
-                                class="relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                <img
-                                    src="<?= e($cover['src']) ?>"
-                                    alt="<?= e($cover['alt']) ?>"
-                                    loading="lazy"
-                                    class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
-                                <span class="sr-only">Preview image for <?= e($photo['title'] ?? '') ?></span>
-                            </button>
-                        <?php endif; ?>
-                        <div class="flex flex-1 flex-col p-5">
-                            <div class="flex items-center justify-between gap-2 text-xs">
-                                <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700"><?= e($photo['category'] ?? '') ?></span>
-                                <span class="text-slate-500"><?= e(format_date_label(isset($photo['date']) ? (string) $photo['date'] : null)) ?></span>
+                    <article data-lazy-card class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                        <?= render_card_skeleton('card', 'aspect-[4/3]') ?>
+                        <div data-lazy-content class="flex flex-1 flex-col">
+                            <?php if ($cover !== null): ?>
+                                <button
+                                    type="button"
+                                    data-gallery-trigger
+                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                    data-gallery-index="0"
+                                    data-gallery-title="<?= e($photo['title'] ?? '') ?>"
+                                    data-gallery-meta="<?= e($metaString) ?>"
+                                    class="lazy-media-wrap relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <?= render_media_skeleton() ?>
+                                    <img
+                                        src="<?= e($cover['src']) ?>"
+                                        alt="<?= e($cover['alt']) ?>"
+                                        data-lazy-img
+                                        loading="lazy"
+                                        decoding="async"
+                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                    <span class="sr-only">Preview image for <?= e($photo['title'] ?? '') ?></span>
+                                </button>
+                            <?php endif; ?>
+                            <div class="flex flex-1 flex-col p-5">
+                                <div class="flex items-center justify-between gap-2 text-xs">
+                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700"><?= e($photo['category'] ?? '') ?></span>
+                                    <span class="text-slate-500"><?= e(format_date_label(isset($photo['date']) ? (string) $photo['date'] : null)) ?></span>
+                                </div>
+                                <h3 class="mt-3 text-base font-semibold text-slate-900"><?= e($photo['title'] ?? '') ?></h3>
+                                <p class="mt-2 flex-1 text-sm leading-6 text-slate-600"><?= e($photo['caption'] ?? '') ?></p>
                             </div>
-                            <h3 class="mt-3 text-base font-semibold text-slate-900"><?= e($photo['title'] ?? '') ?></h3>
-                            <p class="mt-2 flex-1 text-sm leading-6 text-slate-600"><?= e($photo['caption'] ?? '') ?></p>
                         </div>
                     </article>
                 <?php endforeach; ?>

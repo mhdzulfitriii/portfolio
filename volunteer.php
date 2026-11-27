@@ -78,8 +78,9 @@ include __DIR__ . '/header.php';
                         $gallery = resolve_item_gallery($org, $orgName);
                         $meta = implode(' · ', array_filter([$position, $period, $org['place'] ?? '']));
                         ?>
-                        <article class="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
-                            <div class="grid grid-cols-1 lg:grid-cols-12">
+                        <article data-lazy-card class="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
+                            <?= render_card_skeleton('horizontal', 'aspect-[16/10]', count($gallery) > 1) ?>
+                            <div data-lazy-content class="grid grid-cols-1 lg:grid-cols-12">
                                 <!-- Visual Showcase Media -->
                                 <div class="flex flex-col border-b border-slate-200/80 bg-slate-50 lg:col-span-5 lg:border-r lg:border-b-0">
                                     <?php if ($cover !== null): ?>
@@ -90,11 +91,14 @@ include __DIR__ . '/header.php';
                                             data-gallery-index="0"
                                             data-gallery-title="<?= e($orgName) ?>"
                                             data-gallery-meta="<?= e($meta) ?>"
-                                            class="group relative aspect-[16/10] w-full flex-1 cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 lg:aspect-auto lg:min-h-[220px]">
+                                            class="lazy-media-wrap group relative aspect-[16/10] w-full flex-1 cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 lg:aspect-auto lg:min-h-[220px]">
+                                            <?= render_media_skeleton() ?>
                                             <img
                                                 src="<?= e($cover['src']) ?>"
                                                 alt="<?= e($cover['alt']) ?>"
+                                                data-lazy-img
                                                 loading="lazy"
+                                                decoding="async"
                                                 class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
                                             <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
                                                 <?= count($gallery) > 1 ? e(count($gallery)) . ' Photos' : 'View Showcase' ?>
@@ -111,8 +115,9 @@ include __DIR__ . '/header.php';
                                                         data-gallery-index="<?= e($idx) ?>"
                                                         data-gallery-title="<?= e($orgName) ?>"
                                                         data-gallery-meta="<?= e($meta) ?>"
-                                                        class="h-12 w-18 shrink-0 cursor-pointer overflow-hidden rounded-lg border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                                        <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" loading="lazy" class="h-full w-full object-cover">
+                                                        class="lazy-media-wrap h-12 w-18 shrink-0 cursor-pointer overflow-hidden rounded-lg border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                        <?= render_media_skeleton('rounded-lg') ?>
+                                                        <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" data-lazy-img loading="lazy" decoding="async" class="h-full w-full object-cover">
                                                     </button>
                                                 <?php endforeach; ?>
                                             </div>
@@ -225,92 +230,100 @@ include __DIR__ . '/header.php';
                         $searchBlob = implode(' ', [$progName, $position, $progDate, $place, (string) ($prog['organizer'] ?? ''), (string) ($prog['category'] ?? '')]);
                         ?>
                         <article
+                            data-lazy-card
                             data-filter-item="volunteer"
                             data-category="<?= e($prog['category'] ?? '') ?>"
                             data-search="<?= e($searchBlob) ?>"
                             class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
-                            <?php if ($cover !== null): ?>
-                                <button
-                                    type="button"
-                                    data-gallery-trigger
-                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                    data-gallery-index="0"
-                                    data-gallery-title="<?= e($progName) ?>"
-                                    data-gallery-meta="<?= e($meta) ?>"
-                                    class="relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    <img
-                                        src="<?= e($cover['src']) ?>"
-                                        alt="<?= e($cover['alt']) ?>"
-                                        loading="lazy"
-                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
-                                    <span class="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full bg-slate-900/75 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
-                                        <?= count($gallery) > 1 ? e(count($gallery)) . ' Photos' : 'View Image' ?>
-                                    </span>
-                                    <span class="sr-only">Open image showcase for <?= e($progName) ?></span>
-                                </button>
+                            <?= render_card_skeleton('card', 'aspect-[4/3]', count($gallery) > 1) ?>
+                            <div data-lazy-content class="flex flex-1 flex-col">
+                                <?php if ($cover !== null): ?>
+                                    <button
+                                        type="button"
+                                        data-gallery-trigger
+                                        data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                        data-gallery-index="0"
+                                        data-gallery-title="<?= e($progName) ?>"
+                                        data-gallery-meta="<?= e($meta) ?>"
+                                        class="lazy-media-wrap relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        <?= render_media_skeleton() ?>
+                                        <img
+                                            src="<?= e($cover['src']) ?>"
+                                            alt="<?= e($cover['alt']) ?>"
+                                            data-lazy-img
+                                            loading="lazy"
+                                            decoding="async"
+                                            class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                        <span class="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full bg-slate-900/75 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
+                                            <?= count($gallery) > 1 ? e(count($gallery)) . ' Photos' : 'View Image' ?>
+                                        </span>
+                                        <span class="sr-only">Open image showcase for <?= e($progName) ?></span>
+                                    </button>
 
-                                <?php if (count($gallery) > 1): ?>
-                                    <div class="flex gap-1.5 overflow-x-auto border-b border-slate-100 bg-slate-50 px-3 py-2">
-                                        <?php foreach ($gallery as $idx => $slide): ?>
-                                            <button
-                                                type="button"
-                                                data-gallery-trigger
-                                                data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                                data-gallery-index="<?= e($idx) ?>"
-                                                data-gallery-title="<?= e($progName) ?>"
-                                                data-gallery-meta="<?= e($meta) ?>"
-                                                class="h-10 w-14 shrink-0 cursor-pointer overflow-hidden rounded-md border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                                <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" loading="lazy" class="h-full w-full object-cover">
-                                            </button>
-                                        <?php endforeach; ?>
-                                    </div>
+                                    <?php if (count($gallery) > 1): ?>
+                                        <div class="flex gap-1.5 overflow-x-auto border-b border-slate-100 bg-slate-50 px-3 py-2">
+                                            <?php foreach ($gallery as $idx => $slide): ?>
+                                                <button
+                                                    type="button"
+                                                    data-gallery-trigger
+                                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                                    data-gallery-index="<?= e($idx) ?>"
+                                                    data-gallery-title="<?= e($progName) ?>"
+                                                    data-gallery-meta="<?= e($meta) ?>"
+                                                    class="lazy-media-wrap h-10 w-14 shrink-0 cursor-pointer overflow-hidden rounded-md border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <?= render_media_skeleton('rounded-md') ?>
+                                                    <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" data-lazy-img loading="lazy" decoding="async" class="h-full w-full object-cover">
+                                                </button>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 <?php endif; ?>
-                            <?php endif; ?>
 
-                            <div class="flex flex-1 flex-col p-5">
-                                <div class="flex items-center justify-between gap-2 text-xs">
-                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
-                                        <?= e($prog['category'] ?? 'Volunteer') ?>
-                                    </span>
-                                    <span class="font-medium text-slate-500"><?= e($progDate) ?></span>
+                                <div class="flex flex-1 flex-col p-5">
+                                    <div class="flex items-center justify-between gap-2 text-xs">
+                                        <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-semibold text-indigo-700">
+                                            <?= e($prog['category'] ?? 'Volunteer') ?>
+                                        </span>
+                                        <span class="font-medium text-slate-500"><?= e($progDate) ?></span>
+                                    </div>
+
+                                    <h3 class="mt-3 text-base font-semibold leading-snug text-slate-900">
+                                        <?= e($progName) ?>
+                                    </h3>
+
+                                    <!-- Structured Programme Info (Position, Date, Place) -->
+                                    <dl class="mt-3 space-y-1.5 rounded-xl bg-slate-50/80 p-3 text-xs">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <dt class="font-medium text-slate-500">Position</dt>
+                                            <dd class="font-semibold text-indigo-700"><?= e($position) ?></dd>
+                                        </div>
+                                        <div class="flex items-center justify-between gap-2">
+                                            <dt class="font-medium text-slate-500">Date</dt>
+                                            <dd class="font-medium text-slate-800"><?= e($progDate) ?></dd>
+                                        </div>
+                                        <div class="flex items-center justify-between gap-2">
+                                            <dt class="font-medium text-slate-500">Place</dt>
+                                            <dd class="text-right font-medium text-slate-800"><?= e($place) ?></dd>
+                                        </div>
+                                    </dl>
+
+                                    <?php if (!empty($prog['summary'])): ?>
+                                        <p class="mt-3 text-sm leading-6 text-slate-600">
+                                            <?= e($prog['summary']) ?>
+                                        </p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($highlights)): ?>
+                                        <ul class="mt-3 space-y-1.5 border-t border-slate-100 pt-3 text-xs leading-5 text-slate-600">
+                                            <?php foreach ($highlights as $point): ?>
+                                                <li class="flex items-start gap-2">
+                                                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" aria-hidden="true"></span>
+                                                    <span><?= e($point) ?></span>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
                                 </div>
-
-                                <h3 class="mt-3 text-base font-semibold leading-snug text-slate-900">
-                                    <?= e($progName) ?>
-                                </h3>
-
-                                <!-- Structured Programme Info (Position, Date, Place) -->
-                                <dl class="mt-3 space-y-1.5 rounded-xl bg-slate-50/80 p-3 text-xs">
-                                    <div class="flex items-center justify-between gap-2">
-                                        <dt class="font-medium text-slate-500">Position</dt>
-                                        <dd class="font-semibold text-indigo-700"><?= e($position) ?></dd>
-                                    </div>
-                                    <div class="flex items-center justify-between gap-2">
-                                        <dt class="font-medium text-slate-500">Date</dt>
-                                        <dd class="font-medium text-slate-800"><?= e($progDate) ?></dd>
-                                    </div>
-                                    <div class="flex items-center justify-between gap-2">
-                                        <dt class="font-medium text-slate-500">Place</dt>
-                                        <dd class="text-right font-medium text-slate-800"><?= e($place) ?></dd>
-                                    </div>
-                                </dl>
-
-                                <?php if (!empty($prog['summary'])): ?>
-                                    <p class="mt-3 text-sm leading-6 text-slate-600">
-                                        <?= e($prog['summary']) ?>
-                                    </p>
-                                <?php endif; ?>
-
-                                <?php if (!empty($highlights)): ?>
-                                    <ul class="mt-3 space-y-1.5 border-t border-slate-100 pt-3 text-xs leading-5 text-slate-600">
-                                        <?php foreach ($highlights as $point): ?>
-                                            <li class="flex items-start gap-2">
-                                                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" aria-hidden="true"></span>
-                                                <span><?= e($point) ?></span>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php endif; ?>
                             </div>
                         </article>
                     <?php endforeach; ?>

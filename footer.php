@@ -52,7 +52,12 @@
                 </div>
             </div>
 
-            <div class="relative flex items-center justify-center bg-slate-950">
+            <div id="lightbox-stage" class="relative flex min-h-[260px] items-center justify-center bg-slate-950 sm:min-h-[380px]">
+                <div
+                    id="lightbox-skeleton"
+                    aria-hidden="true"
+                    class="skeleton-block-dark pointer-events-none absolute inset-0 z-[5] transition-opacity duration-300 motion-reduce:transition-none"></div>
+
                 <button
                     id="lightbox-prev"
                     type="button"
@@ -63,7 +68,7 @@
                     </svg>
                 </button>
 
-                <img id="lightbox-img" src="" alt="" class="max-h-[68vh] w-full object-contain">
+                <img id="lightbox-img" src="" alt="" decoding="async" class="relative z-[6] max-h-[68vh] w-full object-contain opacity-0 transition-opacity duration-300 motion-reduce:transition-none">
 
                 <button
                     id="lightbox-next"
@@ -205,6 +210,8 @@
 
             // Accessible Multi-Image Showcase Lightbox
             const lightbox = document.getElementById('showcase-lightbox');
+            const lightboxStage = document.getElementById('lightbox-stage');
+            const lightboxSkeleton = document.getElementById('lightbox-skeleton');
             const lightboxClose = document.getElementById('lightbox-close');
             const lightboxPrev = document.getElementById('lightbox-prev');
             const lightboxNext = document.getElementById('lightbox-next');
@@ -217,13 +224,53 @@
             let slides = [];
             let currentIndex = 0;
             let lastTrigger = null;
+            let lightboxLoadToken = 0;
+
+            function setLightboxLoading(isLoading) {
+                if (lightboxStage) {
+                    lightboxStage.setAttribute('aria-busy', String(isLoading));
+                }
+                if (lightboxSkeleton) {
+                    lightboxSkeleton.classList.toggle('opacity-100', isLoading);
+                    lightboxSkeleton.classList.toggle('opacity-0', !isLoading);
+                }
+                if (lightboxImg) {
+                    lightboxImg.classList.toggle('opacity-0', isLoading);
+                    lightboxImg.classList.toggle('opacity-100', !isLoading);
+                }
+            }
 
             function renderSlide() {
                 if (!slides.length) return;
                 const slide = slides[currentIndex];
                 if (lightboxImg) {
-                    lightboxImg.src = slide.src || '';
+                    const token = ++lightboxLoadToken;
+                    const nextSrc = slide.src || '';
+                    setLightboxLoading(true);
                     lightboxImg.alt = slide.alt || '';
+
+                    const finish = () => {
+                        if (token !== lightboxLoadToken) return;
+                        setLightboxLoading(false);
+                    };
+
+                    lightboxImg.onload = () => {
+                        if (typeof lightboxImg.decode === 'function') {
+                            lightboxImg.decode().catch(() => {}).finally(finish);
+                        } else {
+                            finish();
+                        }
+                    };
+                    lightboxImg.onerror = finish;
+                    lightboxImg.src = nextSrc;
+
+                    if (lightboxImg.complete && lightboxImg.naturalWidth > 0) {
+                        if (typeof lightboxImg.decode === 'function') {
+                            lightboxImg.decode().catch(() => {}).finally(finish);
+                        } else {
+                            finish();
+                        }
+                    }
                 }
                 if (lightboxCaption) {
                     lightboxCaption.textContent = slide.caption || '';
@@ -311,6 +358,130 @@
                         renderSlide();
                     }
                 });
+            }
+
+            // Progressive Lazy-Loading & Skeleton Reveal Controller
+            const prefersReducedMotion = Boolean(
+                window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            );
+
+            function markImageReady(img) {
+                if (!img || img.getAttribute('data-img-ready') === 'true') return;
+                img.setAttribute('data-img-ready', 'true');
+                const wrap = img.closest('.lazy-media-wrap');
+                if (wrap) {
+                    wrap.setAttribute('data-img-loaded', 'true');
+                    const skeleton = wrap.querySelector('.lazy-media-skeleton');
+                    if (skeleton) {
+                        window.setTimeout(() => {
+                            skeleton.style.display = 'none';
+                        }, prefersReducedMotion ? 0 : 340);
+                    }
+                }
+            }
+
+            function bindLazyImage(img) {
+                if (!img) return;
+                const finish = () => {
+                    if (typeof img.decode === 'function' && img.naturalWidth > 0) {
+                        img.decode().catch(() => {}).finally(() => markImageReady(img));
+                    } else {
+                        markImageReady(img);
+                    }
+                };
+
+                if (img.complete && img.naturalWidth > 0) {
+                    finish();
+                    return;
+                }
+
+                img.addEventListener('load', finish, { once: true });
+                img.addEventListener('error', () => markImageReady(img), { once: true });
+            }
+
+            document.querySelectorAll('img[data-lazy-img]').forEach(bindLazyImage);
+
+            const lazyCards = Array.from(document.querySelectorAll('[data-lazy-card]'));
+
+            function waitForPrimaryImage(card, maxWaitMs) {
+                const primaryImg = card.querySelector('img[data-lazy-img]');
+                if (!primaryImg || (primaryImg.complete && primaryImg.naturalWidth > 0)) {
+                    return Promise.resolve();
+                }
+
+                return new Promise((resolve) => {
+                    let settled = false;
+                    const done = () => {
+                        if (settled) return;
+                        settled = true;
+                        resolve();
+                    };
+
+                    primaryImg.addEventListener('load', done, { once: true });
+                    primaryImg.addEventListener('error', done, { once: true });
+                    window.setTimeout(done, maxWaitMs);
+                });
+            }
+
+            function revealLazyCard(card, staggerMs) {
+                if (!card || card.dataset.lazyRevealing === 'true' || card.getAttribute('data-lazy-loaded') === 'true') {
+                    return;
+                }
+                card.dataset.lazyRevealing = 'true';
+
+                const minSkeletonMs = prefersReducedMotion ? 0 : 280 + staggerMs;
+                const delayPromise = minSkeletonMs > 0
+                    ? new Promise((resolve) => window.setTimeout(resolve, minSkeletonMs))
+                    : Promise.resolve();
+
+                Promise.all([waitForPrimaryImage(card, 1400), delayPromise]).then(() => {
+                    card.setAttribute('data-lazy-loaded', 'true');
+                    card.setAttribute('aria-busy', 'false');
+                    const skeleton = card.querySelector(':scope > [data-lazy-skeleton]');
+                    if (skeleton) {
+                        window.setTimeout(() => {
+                            skeleton.style.display = 'none';
+                        }, prefersReducedMotion ? 0 : 360);
+                    }
+                });
+            }
+
+            if (lazyCards.length > 0) {
+                lazyCards.forEach((card) => {
+                    card.setAttribute('aria-busy', 'true');
+                });
+
+                if ('IntersectionObserver' in window) {
+                    const cardObserver = new IntersectionObserver(
+                        (entries) => {
+                            let batchIndex = 0;
+                            entries.forEach((entry) => {
+                                if (!entry.isIntersecting) return;
+                                const card = entry.target;
+                                cardObserver.unobserve(card);
+                                const stagger = Math.min(batchIndex * 70, 280);
+                                batchIndex++;
+                                revealLazyCard(card, stagger);
+                            });
+                        },
+                        { rootMargin: '60px 0px', threshold: 0.05 }
+                    );
+
+                    lazyCards.forEach((card) => cardObserver.observe(card));
+
+                    // Keyboard safety net: immediately reveal a card if focus moves inside it
+                    document.addEventListener('focusin', (event) => {
+                        const target = event.target;
+                        if (!(target instanceof Element)) return;
+                        const card = target.closest('[data-lazy-card]:not([data-lazy-loaded="true"])');
+                        if (card) {
+                            cardObserver.unobserve(card);
+                            revealLazyCard(card, 0);
+                        }
+                    });
+                } else {
+                    lazyCards.forEach((card) => revealLazyCard(card, 0));
+                }
             }
         })();
     </script>

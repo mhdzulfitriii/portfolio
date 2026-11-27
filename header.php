@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/data.php';
+require_once __DIR__ . '/includes/lazy.php';
 
 $siteBaseUrl = 'https://mhdzulfitriii.github.io/portfolio/';
 $siteName = 'Muhammad Zul Fitri — Portfolio';
@@ -187,7 +188,128 @@ $jsonLdPayload = json_encode(
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json"><?= $jsonLdPayload ?></script>
 
+    <!-- Enable progressive skeleton lazy-loading before first paint -->
+    <script>document.documentElement.classList.add('js-lazy');</script>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @keyframes skeleton-shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .skeleton-block {
+            background-color: #e2e8f0;
+            background-image: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 45%, #e2e8f0 90%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.45s ease-in-out infinite;
+        }
+
+        .skeleton-block-dark {
+            background-color: #1e293b;
+            background-image: linear-gradient(90deg, #1e293b 0%, #334155 45%, #1e293b 90%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.45s ease-in-out infinite;
+        }
+
+        /* Progressive enhancement: hide skeletons when JS is unavailable */
+        html:not(.js-lazy) [data-lazy-skeleton],
+        html:not(.js-lazy) .lazy-media-skeleton {
+            display: none;
+        }
+
+        /* Card-level lazy reveal with zero layout shift */
+        .js-lazy [data-lazy-card] {
+            position: relative;
+        }
+
+        .js-lazy [data-lazy-card]:not([data-lazy-loaded="true"]) > [data-lazy-content] {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .js-lazy [data-lazy-card][data-lazy-loaded="true"] > [data-lazy-content] {
+            opacity: 1;
+            transition: opacity 380ms ease-out;
+        }
+
+        .js-lazy [data-lazy-card] > [data-lazy-skeleton] {
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 320ms ease-out, visibility 320ms ease-out;
+        }
+
+        .js-lazy [data-lazy-card][data-lazy-loaded="true"] > [data-lazy-skeleton] {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Individual image shimmer + smooth fade-in */
+        .lazy-media-wrap {
+            position: relative;
+            overflow: hidden;
+            background-color: #f1f5f9;
+        }
+
+        .lazy-media-skeleton {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 300ms ease-out, visibility 300ms ease-out;
+        }
+
+        .lazy-media-wrap[data-img-loaded="true"] > .lazy-media-skeleton {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .js-lazy img[data-lazy-img]:not([data-img-ready="true"]) {
+            opacity: 0;
+        }
+
+        .js-lazy img[data-lazy-img][data-img-ready="true"] {
+            opacity: 1;
+            transition: opacity 360ms ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .skeleton-block,
+            .skeleton-block-dark {
+                animation: none;
+                background-image: none;
+            }
+
+            .js-lazy [data-lazy-card] > [data-lazy-content],
+            .js-lazy [data-lazy-card] > [data-lazy-skeleton],
+            .lazy-media-skeleton,
+            .js-lazy img[data-lazy-img] {
+                transition: none !important;
+            }
+        }
+
+        @media print {
+            [data-lazy-skeleton],
+            .lazy-media-skeleton {
+                display: none !important;
+            }
+
+            [data-lazy-content],
+            img[data-lazy-img] {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">

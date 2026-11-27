@@ -88,10 +88,12 @@ include __DIR__ . '/header.php';
                         $meta = implode(' · ', array_filter([$org, $dateRange, $exp['location'] ?? '']));
                         ?>
                         <li
+                            data-lazy-card
                             data-filter-item="experience"
                             data-category="<?= e($exp['type'] ?? '') ?>"
                             class="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
-                            <div class="grid grid-cols-1 lg:grid-cols-12">
+                            <?= render_card_skeleton('horizontal', 'aspect-[16/10]', count($gallery) > 1) ?>
+                            <div data-lazy-content class="grid grid-cols-1 lg:grid-cols-12">
                                 <!-- Visual Showcase Media -->
                                 <div class="flex flex-col border-b border-slate-200/80 bg-slate-50 lg:col-span-5 lg:border-r lg:border-b-0">
                                     <?php if ($cover !== null): ?>
@@ -102,11 +104,14 @@ include __DIR__ . '/header.php';
                                             data-gallery-index="0"
                                             data-gallery-title="<?= e($role) ?>"
                                             data-gallery-meta="<?= e($meta) ?>"
-                                            class="group relative aspect-[16/10] w-full flex-1 cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 lg:aspect-auto lg:min-h-[260px]">
+                                            class="lazy-media-wrap group relative aspect-[16/10] w-full flex-1 cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 lg:aspect-auto lg:min-h-[260px]">
+                                            <?= render_media_skeleton() ?>
                                             <img
                                                 src="<?= e($cover['src']) ?>"
                                                 alt="<?= e($cover['alt']) ?>"
+                                                data-lazy-img
                                                 loading="lazy"
+                                                decoding="async"
                                                 class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
                                             <span class="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-xs">
                                                 <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
@@ -126,8 +131,9 @@ include __DIR__ . '/header.php';
                                                         data-gallery-index="<?= e($idx) ?>"
                                                         data-gallery-title="<?= e($role) ?>"
                                                         data-gallery-meta="<?= e($meta) ?>"
-                                                        class="h-12 w-18 shrink-0 cursor-pointer overflow-hidden rounded-lg border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                                        <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" loading="lazy" class="h-full w-full object-cover">
+                                                        class="lazy-media-wrap h-12 w-18 shrink-0 cursor-pointer overflow-hidden rounded-lg border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                        <?= render_media_skeleton('rounded-lg') ?>
+                                                        <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" data-lazy-img loading="lazy" decoding="async" class="h-full w-full object-cover">
                                                     </button>
                                                 <?php endforeach; ?>
                                             </div>

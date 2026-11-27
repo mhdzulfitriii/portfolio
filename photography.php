@@ -55,8 +55,9 @@ include __DIR__ . '/header.php';
         ?>
         <section aria-labelledby="spotlight-heading" class="border-b border-slate-200/80 bg-white py-12 sm:py-16">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <div class="overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-50/70 shadow-xs">
-                    <div class="grid grid-cols-1 lg:grid-cols-12">
+                <div data-lazy-card class="overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-50/70 shadow-xs">
+                    <?= render_card_skeleton('spotlight') ?>
+                    <div data-lazy-content class="grid grid-cols-1 lg:grid-cols-12">
                         <div class="lg:col-span-7">
                             <?php if ($spotCover !== null): ?>
                                 <button
@@ -66,10 +67,14 @@ include __DIR__ . '/header.php';
                                     data-gallery-index="0"
                                     data-gallery-title="<?= e($spotTitle) ?>"
                                     data-gallery-meta="<?= e($spotMeta) ?>"
-                                    class="group relative block aspect-[16/10] h-full w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    class="lazy-media-wrap group relative block aspect-[16/10] h-full w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    <?= render_media_skeleton() ?>
                                     <img
                                         src="<?= e($spotCover['src']) ?>"
                                         alt="<?= e($spotCover['alt']) ?>"
+                                        data-lazy-img
+                                        decoding="async"
+                                        fetchpriority="high"
                                         class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
                                     <span class="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-xs">
                                         Open Gallery Viewer
@@ -149,69 +154,77 @@ include __DIR__ . '/header.php';
                         ]);
                         ?>
                         <article
+                            data-lazy-card
                             data-filter-item="photography"
                             data-category="<?= e($photo['category'] ?? '') ?>"
                             data-search="<?= e($searchBlob) ?>"
                             class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md">
-                            <?php if ($cover !== null): ?>
-                                <button
-                                    type="button"
-                                    data-gallery-trigger
-                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                    data-gallery-index="0"
-                                    data-gallery-title="<?= e($title) ?>"
-                                    data-gallery-meta="<?= e($metaString) ?>"
-                                    class="relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    <img
-                                        src="<?= e($cover['src']) ?>"
-                                        alt="<?= e($cover['alt']) ?>"
-                                        loading="lazy"
-                                        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
-                                    <span class="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full bg-slate-900/75 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
-                                        <?= count($gallery) > 1 ? e(count($gallery)) . ' Photos' : 'Zoom' ?>
-                                    </span>
-                                    <span class="sr-only">Open photo showcase for <?= e($title) ?></span>
-                                </button>
+                            <?= render_card_skeleton('card', 'aspect-[4/3]', count($gallery) > 1) ?>
+                            <div data-lazy-content class="flex flex-1 flex-col">
+                                <?php if ($cover !== null): ?>
+                                    <button
+                                        type="button"
+                                        data-gallery-trigger
+                                        data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                        data-gallery-index="0"
+                                        data-gallery-title="<?= e($title) ?>"
+                                        data-gallery-meta="<?= e($metaString) ?>"
+                                        class="lazy-media-wrap relative aspect-[4/3] w-full cursor-pointer overflow-hidden bg-slate-100 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        <?= render_media_skeleton() ?>
+                                        <img
+                                            src="<?= e($cover['src']) ?>"
+                                            alt="<?= e($cover['alt']) ?>"
+                                            data-lazy-img
+                                            loading="lazy"
+                                            decoding="async"
+                                            class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105">
+                                        <span class="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full bg-slate-900/75 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
+                                            <?= count($gallery) > 1 ? e(count($gallery)) . ' Photos' : 'Zoom' ?>
+                                        </span>
+                                        <span class="sr-only">Open photo showcase for <?= e($title) ?></span>
+                                    </button>
 
-                                <?php if (count($gallery) > 1): ?>
-                                    <div class="flex gap-1.5 overflow-x-auto border-b border-slate-100 bg-slate-50 px-3 py-2">
-                                        <?php foreach ($gallery as $idx => $slide): ?>
-                                            <button
-                                                type="button"
-                                                data-gallery-trigger
-                                                data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
-                                                data-gallery-index="<?= e($idx) ?>"
-                                                data-gallery-title="<?= e($title) ?>"
-                                                data-gallery-meta="<?= e($metaString) ?>"
-                                                class="h-10 w-14 shrink-0 cursor-pointer overflow-hidden rounded-md border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                                <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" loading="lazy" class="h-full w-full object-cover">
-                                            </button>
-                                        <?php endforeach; ?>
+                                    <?php if (count($gallery) > 1): ?>
+                                        <div class="flex gap-1.5 overflow-x-auto border-b border-slate-100 bg-slate-50 px-3 py-2">
+                                            <?php foreach ($gallery as $idx => $slide): ?>
+                                                <button
+                                                    type="button"
+                                                    data-gallery-trigger
+                                                    data-gallery="<?= e(json_encode($gallery, JSON_UNESCAPED_SLASHES)) ?>"
+                                                    data-gallery-index="<?= e($idx) ?>"
+                                                    data-gallery-title="<?= e($title) ?>"
+                                                    data-gallery-meta="<?= e($metaString) ?>"
+                                                    class="lazy-media-wrap h-10 w-14 shrink-0 cursor-pointer overflow-hidden rounded-md border border-slate-200 transition-all hover:border-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                                    <?= render_media_skeleton('rounded-md') ?>
+                                                    <img src="<?= e($slide['src']) ?>" alt="<?= e($slide['alt']) ?>" data-lazy-img loading="lazy" decoding="async" class="h-full w-full object-cover">
+                                                </button>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+                                <div class="flex flex-1 flex-col p-5">
+                                    <div class="flex items-center justify-between gap-2 text-xs">
+                                        <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700">
+                                            <?= e($photo['category'] ?? 'Event') ?>
+                                        </span>
+                                        <span class="text-slate-500"><?= e(format_date_label(isset($photo['date']) ? (string) $photo['date'] : null)) ?></span>
                                     </div>
-                                <?php endif; ?>
-                            <?php endif; ?>
 
-                            <div class="flex flex-1 flex-col p-5">
-                                <div class="flex items-center justify-between gap-2 text-xs">
-                                    <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 font-medium text-indigo-700">
-                                        <?= e($photo['category'] ?? 'Event') ?>
-                                    </span>
-                                    <span class="text-slate-500"><?= e(format_date_label(isset($photo['date']) ? (string) $photo['date'] : null)) ?></span>
+                                    <h2 class="mt-3 text-base font-semibold leading-snug text-slate-900">
+                                        <?= e($title) ?>
+                                    </h2>
+                                    <?php if (!empty($photo['caption'])): ?>
+                                        <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                                            <?= e($photo['caption']) ?>
+                                        </p>
+                                    <?php endif; ?>
+                                    <?php if ($metaString !== ''): ?>
+                                        <p class="mt-4 border-t border-slate-100 pt-3 text-xs font-medium text-slate-500">
+                                            <?= e($metaString) ?>
+                                        </p>
+                                    <?php endif; ?>
                                 </div>
-
-                                <h2 class="mt-3 text-base font-semibold leading-snug text-slate-900">
-                                    <?= e($title) ?>
-                                </h2>
-                                <?php if (!empty($photo['caption'])): ?>
-                                    <p class="mt-2 flex-1 text-sm leading-6 text-slate-600">
-                                        <?= e($photo['caption']) ?>
-                                    </p>
-                                <?php endif; ?>
-                                <?php if ($metaString !== ''): ?>
-                                    <p class="mt-4 border-t border-slate-100 pt-3 text-xs font-medium text-slate-500">
-                                        <?= e($metaString) ?>
-                                    </p>
-                                <?php endif; ?>
                             </div>
                         </article>
                     <?php endforeach; ?>
