@@ -204,7 +204,7 @@ $jsonLdPayload = json_encode(
             <a
                 href="index.php"
                 class="rounded-md text-xl font-bold tracking-tight text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                ZulFitri<span class="text-indigo-600">.dev</span>
+                ZulFitri<span class="text-indigo-600">.tech</span>
             </a>
 
             <!-- Desktop Navigation -->

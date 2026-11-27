@@ -1,102 +1,190 @@
 [
-  {
-    "id": "customer-facing-blazor-systems",
-    "title": "Customer-Facing Enterprise Web Systems",
-    "tagline": "User-centric business web applications built with .NET and Blazor.",
-    "description": "Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.",
-    "category": "Web App",
-    "role": "Junior Software Developer",
-    "year": "2025",
-    "tags": [
-      ".NET",
-      "Blazor",
-      "OpenProject",
-      "System Testing"
-    ],
-    "image": "asset/projects/blazor-systems.svg",
-    "image_alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
-    "gallery": [
-      {
-        "src": "asset/projects/blazor-systems.svg",
-        "alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
-        "caption": "Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad."
-      }
-    ],
-    "highlights": [
-      "Delivered functional, user-centric web features aligned with specific business objectives",
-      "Tracked and resolved software defects systematically via OpenProject to sustain high reliability",
-      "Applied rigorous coding and system testing standards across release cycles"
-    ],
-    "live_url": null,
-    "repo_url": null,
-    "case_study_url": null,
-    "featured": true,
-    "order": 1
-  },
-  {
-    "id": "smart-parking-web-app",
-    "title": "Smart Parking Web Application",
-    "tagline": "Full-stack Laravel platform streamlining parking management workflows.",
-    "description": "Engineered a smart parking management web application during my internship at HeiTech Padu Berhad to centralize slot tracking and improve operational efficiency.",
-    "category": "Web App",
-    "role": "Software Developer Trainee",
-    "year": "2024",
-    "tags": [
-      "Laravel",
-      "PHP",
-      "Web Architecture",
-      "Smart Mobility"
-    ],
-    "image": "asset/projects/smart-parking.svg",
-    "image_alt": "Showcase cover for the Smart Parking Web Application engineered with Laravel",
-    "gallery": [
-      {
-        "src": "asset/projects/smart-parking.svg",
-        "alt": "Showcase cover for the Smart Parking Web Application engineered with Laravel",
-        "caption": "Smart parking web platform built with Laravel to enhance parking management efficiency."
-      }
-    ],
-    "highlights": [
-      "Engineered end-to-end parking management workflows using Laravel",
-      "Improved operational efficiency for real-time parking monitoring and administration"
-    ],
-    "live_url": null,
-    "repo_url": null,
-    "case_study_url": null,
-    "featured": true,
-    "order": 2
-  },
-  {
-    "id": "parking-occupancy-detection",
-    "title": "Car Parking Occupancy Detection System",
-    "tagline": "Real-time computer vision system for automated parking bay occupancy detection.",
-    "description": "Developed and deployed an automated car parking occupancy detection pipeline using Python, OpenCV, and Ultralytics to deliver accurate real-time monitoring.",
-    "category": "Computer Vision",
-    "role": "Software Developer Trainee",
-    "year": "2024",
-    "tags": [
-      "Python",
-      "OpenCV",
-      "Ultralytics",
-      "Computer Vision"
-    ],
-    "image": "asset/projects/parking-vision.svg",
-    "image_alt": "Showcase cover for the Car Parking Occupancy Detection System built with Python, OpenCV, and Ultralytics",
-    "gallery": [
-      {
-        "src": "asset/projects/parking-vision.svg",
-        "alt": "Showcase cover for the Car Parking Occupancy Detection System built with Python, OpenCV, and Ultralytics",
-        "caption": "Automated car parking occupancy detection powered by Python, OpenCV, and Ultralytics."
-      }
-    ],
-    "highlights": [
-      "Integrated Ultralytics object detection with OpenCV video processing pipelines",
-      "Improved real-time parking occupancy monitoring accuracy in live deployment"
-    ],
-    "live_url": null,
-    "repo_url": null,
-    "case_study_url": null,
-    "featured": true,
-    "order": 3
-  }
+    {
+        "id": "iderc-sso",
+        "title": "IDE RESEARCH CENTRE : SINGLE SIGN-ON",
+        "tagline": "User-centric business web applications built with .NET and Blazor.",
+        "description": "Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.",
+        "category": "Web App",
+        "role": "Freelance Project",
+        "year": "2025",
+        "tags": [
+            "Single Sign-on",
+            "OAuth",
+            "Identity Provider",
+            "Laravel"
+        ],
+        "image": "asset/projects/blazor-systems.svg",
+        "image_alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+        "gallery": [
+            {
+                "src": "asset/projects/blazor-systems.svg",
+                "alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+                "caption": "Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad."
+            }
+        ],
+        "highlights": [],
+        "live_url": null,
+        "repo_url": null,
+        "case_study_url": null,
+        "featured": true,
+        "order": 1
+    },
+    {
+        "id": "iderc-program",
+        "title": "IDE RESEARCH CENTRE : PROGRAM MANAGEMENT SYSTEM",
+        "tagline": "User-centric business web applications built with .NET and Blazor.",
+        "description": "Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.",
+        "category": "Web App",
+        "role": "Freelance Project",
+        "year": "2025",
+        "tags": [
+            "Laravel",
+            "Program Management System",
+            "Freelance"
+        ],
+        "image": "asset/projects/blazor-systems.svg",
+        "image_alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+        "gallery": [
+            {
+                "src": "asset/projects/blazor-systems.svg",
+                "alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+                "caption": "Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad."
+            }
+        ],
+        "highlights": [],
+        "live_url": null,
+        "repo_url": null,
+        "case_study_url": null,
+        "featured": true,
+        "order": 1
+    },
+    {
+        "id": "iderc-finance",
+        "title": "IDE RESEARCH CENTRE : FINANCE SYSTEM",
+        "tagline": "User-centric business web applications built with .NET and Blazor.",
+        "description": "Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.",
+        "category": "Web App",
+        "role": "Freelance Project",
+        "year": "2025",
+        "tags": [
+            "Laravel",
+            "Finance",
+            "Freelance"
+        ],
+        "image": "asset/projects/blazor-systems.svg",
+        "image_alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+        "gallery": [
+            {
+                "src": "asset/projects/blazor-systems.svg",
+                "alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+                "caption": "Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad."
+            }
+        ],
+        "highlights": [],
+        "live_url": null,
+        "repo_url": null,
+        "case_study_url": null,
+        "featured": true,
+        "order": 1
+    },
+    {
+        "id": "customer-facing-blazor-systems",
+        "title": "Customer-Facing Enterprise Web Systems",
+        "tagline": "User-centric business web applications built with .NET and Blazor.",
+        "description": "Designed and developed customer-facing systems at HeiTech Padu Berhad by translating complex technical specifications and stakeholder requirements into reliable, maintainable interfaces.",
+        "category": "Web App",
+        "role": "Junior Software Developer",
+        "year": "2025",
+        "tags": [
+            ".NET",
+            "Blazor",
+            "OpenProject",
+            "System Testing"
+        ],
+        "image": "asset/projects/blazor-systems.svg",
+        "image_alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+        "gallery": [
+            {
+                "src": "asset/projects/blazor-systems.svg",
+                "alt": "Showcase cover for Customer-Facing Enterprise Web Systems built with .NET and Blazor",
+                "caption": "Customer-facing enterprise software engineered with .NET and Blazor at HeiTech Padu Berhad."
+            }
+        ],
+        "highlights": [
+            "Delivered functional, user-centric web features aligned with specific business objectives",
+            "Tracked and resolved software defects systematically via OpenProject to sustain high reliability",
+            "Applied rigorous coding and system testing standards across release cycles"
+        ],
+        "live_url": null,
+        "repo_url": null,
+        "case_study_url": null,
+        "featured": true,
+        "order": 1
+    },
+    {
+        "id": "smart-parking-web-app",
+        "title": "Smart Parking Web Application",
+        "tagline": "Full-stack Laravel platform streamlining parking management workflows.",
+        "description": "Engineered a smart parking management web application during my internship at HeiTech Padu Berhad to centralize slot tracking and improve operational efficiency.",
+        "category": "Web App",
+        "role": "Software Developer Trainee",
+        "year": "2024",
+        "tags": [
+            "Laravel",
+            "PHP",
+            "Web Architecture",
+            "Smart Mobility"
+        ],
+        "image": "asset/projects/smart-parking.svg",
+        "image_alt": "Showcase cover for the Smart Parking Web Application engineered with Laravel",
+        "gallery": [
+            {
+                "src": "asset/projects/smart-parking.svg",
+                "alt": "Showcase cover for the Smart Parking Web Application engineered with Laravel",
+                "caption": "Smart parking web platform built with Laravel to enhance parking management efficiency."
+            }
+        ],
+        "highlights": [
+            "Engineered end-to-end parking management workflows using Laravel",
+            "Improved operational efficiency for real-time parking monitoring and administration"
+        ],
+        "live_url": null,
+        "repo_url": null,
+        "case_study_url": null,
+        "featured": true,
+        "order": 2
+    },
+    {
+        "id": "parking-occupancy-detection",
+        "title": "Car Parking Occupancy Detection System",
+        "tagline": "Real-time computer vision system for automated parking bay occupancy detection.",
+        "description": "Developed and deployed an automated car parking occupancy detection pipeline using Python, OpenCV, and Ultralytics to deliver accurate real-time monitoring.",
+        "category": "Computer Vision",
+        "role": "Software Developer Trainee",
+        "year": "2024",
+        "tags": [
+            "Python",
+            "OpenCV",
+            "Ultralytics",
+            "Computer Vision"
+        ],
+        "image": "asset/projects/parking-vision.svg",
+        "image_alt": "Showcase cover for the Car Parking Occupancy Detection System built with Python, OpenCV, and Ultralytics",
+        "gallery": [
+            {
+                "src": "asset/projects/parking-vision.svg",
+                "alt": "Showcase cover for the Car Parking Occupancy Detection System built with Python, OpenCV, and Ultralytics",
+                "caption": "Automated car parking occupancy detection powered by Python, OpenCV, and Ultralytics."
+            }
+        ],
+        "highlights": [
+            "Integrated Ultralytics object detection with OpenCV video processing pipelines",
+            "Improved real-time parking occupancy monitoring accuracy in live deployment"
+        ],
+        "live_url": null,
+        "repo_url": null,
+        "case_study_url": null,
+        "featured": true,
+        "order": 3
+    }
 ]

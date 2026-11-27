@@ -3,7 +3,7 @@
             <div class="flex flex-col justify-between gap-6 md:flex-row md:items-center">
                 <div>
                     <a href="index.php" class="text-base font-bold tracking-tight text-slate-900">
-                        ZulFitri<span class="text-indigo-600">.dev</span>
+                        ZulFitri<span class="text-indigo-600">.tech</span>
                     </a>
                     <p class="mt-1 text-sm text-slate-500">
                         &copy; <?= e(date('Y')) ?> Muhammad Zul Fitri bin Mohd Zamri. Software Development &amp; Event Photography.

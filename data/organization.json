@@ -1,23 +1,86 @@
 [
-  {
-    "id": "pkpim-penolong-setiausaha-1",
-    "organization": "Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM)",
-    "short_name": "PKPIM",
-    "type": "NGO / Persatuan",
-    "position": "Penolong Setiausaha 1",
-    "start_date": "2024",
-    "end_date": "2025",
-    "is_current": false,
-    "place": "Malaysia",
-    "summary": "Served in the national secretariat leadership of Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), supporting organizational administration, national programmes, and student movement initiatives.",
-    "image": "asset/organizations/pkpim.svg",
-    "image_alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
-    "gallery": [
-      {
-        "src": "asset/organizations/pkpim.svg",
-        "alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
-        "caption": "Penolong Setiausaha 1, Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), 2024–2025."
-      }
-    ]
-  }
+    {
+        "id": "abim-media",
+        "organization": "Angkatan Belia Islam Malaysia (ABIM) Negeri Selangor",
+        "short_name": "ABIM NEGERI SELANGOR",
+        "type": "NGO / Persatuan",
+        "position": "Media & Publicity Bureau",
+        "start_date": "2025",
+        "end_date": "2027",
+        "is_current": true,
+        "place": "Malaysia",
+        "summary": "Served in the national secretariat leadership of Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), supporting organizational administration, national programmes, and student movement initiatives.",
+        "image": "asset/organizations/pkpim.svg",
+        "image_alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+        "gallery": [
+            {
+                "src": "asset/organizations/pkpim.svg",
+                "alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+                "caption": "Penolong Setiausaha 1, Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), 2024–2025."
+            }
+        ]
+    },
+    {
+        "id": "pkpim-penolong-setiausaha-1",
+        "organization": "Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM)",
+        "short_name": "PKPIM",
+        "type": "NGO / Persatuan",
+        "position": "Penolong Setiausaha 1",
+        "start_date": "2024",
+        "end_date": "2025",
+        "is_current": false,
+        "place": "Malaysia",
+        "summary": "Served in the national secretariat leadership of Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), supporting organizational administration, national programmes, and student movement initiatives.",
+        "image": "asset/organizations/pkpim.svg",
+        "image_alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+        "gallery": [
+            {
+                "src": "asset/organizations/pkpim.svg",
+                "alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+                "caption": "Penolong Setiausaha 1, Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), 2024–2025."
+            }
+        ]
+    },
+    {
+        "id": "pkpim-media",
+        "organization": "Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM)",
+        "short_name": "PKPIM",
+        "type": "NGO / Persatuan",
+        "position": "Media Officer",
+        "start_date": "2023",
+        "end_date": "2024",
+        "is_current": false,
+        "place": "Malaysia",
+        "summary": "Served in the national secretariat leadership of Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), supporting organizational administration, national programmes, and student movement initiatives.",
+        "image": "asset/organizations/pkpim.svg",
+        "image_alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+        "gallery": [
+            {
+                "src": "asset/organizations/pkpim.svg",
+                "alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+                "caption": "Penolong Setiausaha 1, Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), 2024–2025."
+            }
+        ]
+    },
+    {
+        "id": "pepias",
+        "organization": "Persatuan Pelajar Islam Selangor Darul Ehsan (PEPIAS)",
+        "short_name": "PEPIAS",
+        "type": "NGO / Persatuan",
+        "position": "Treasurer",
+        "start_date": "2023",
+        "end_date": "2024",
+        "is_current": false,
+        "place": "Malaysia",
+        "summary": "Served in the national secretariat leadership of Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), supporting organizational administration, national programmes, and student movement initiatives.",
+        "image": "asset/organizations/pkpim.svg",
+        "image_alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+        "gallery": [
+            {
+                "src": "asset/organizations/pkpim.svg",
+                "alt": "Showcase cover for Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM) — Penolong Setiausaha 1 (2024–2025)",
+                "caption": "Penolong Setiausaha 1, Persatuan Kebangsaan Pelajar Islam Malaysia (PKPIM), 2024–2025."
+            }
+        ]
+    }
 ]

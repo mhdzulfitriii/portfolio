@@ -84,7 +84,7 @@ include __DIR__ . '/header.php';
                 <div class="lg:col-span-7">
                     <div class="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50 px-3.5 py-1 text-xs font-semibold text-indigo-700">
                         <span class="h-1.5 w-1.5 rounded-full bg-indigo-600" aria-hidden="true"></span>
-                        <span>UTeM Software Development &middot; Event Photography</span>
+                        <span>Software Developer</span>
                     </div>
 
                     <h1 id="hero-heading" class="mt-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
@@ -121,25 +121,6 @@ include __DIR__ . '/header.php';
                             <span class="sr-only">(opens in a new tab)</span>
                         </a>
                     </div>
-
-                    <dl class="mt-10 grid grid-cols-2 gap-4 border-t border-slate-200/80 pt-8 sm:grid-cols-4">
-                        <div>
-                            <dt class="text-xs font-medium text-slate-500">Industry Role</dt>
-                            <dd class="mt-1 text-base font-semibold text-slate-900">HeiTech Padu</dd>
-                        </div>
-                        <div>
-                            <dt class="text-xs font-medium text-slate-500">Diploma CGPA</dt>
-                            <dd class="mt-1 text-base font-semibold text-slate-900">3.62 / 4.00</dd>
-                        </div>
-                        <div>
-                            <dt class="text-xs font-medium text-slate-500">Scholarship</dt>
-                            <dd class="mt-1 text-base font-semibold text-slate-900">YBTM KPT – PCP</dd>
-                        </div>
-                        <div>
-                            <dt class="text-xs font-medium text-slate-500">Event Coverage</dt>
-                            <dd class="mt-1 text-base font-semibold text-slate-900"><?= e(count($photos)) ?>+ Events</dd>
-                        </div>
-                    </dl>
                 </div>
 
                 <!-- Profile Card -->
@@ -181,7 +162,7 @@ include __DIR__ . '/header.php';
                                 </ul>
                             </div>
 
-                            <div class="rounded-xl border border-slate-200/80 bg-white p-4">
+                            <!-- <div class="rounded-xl border border-slate-200/80 bg-white p-4">
                                 <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Event Photography</p>
                                 <p class="mt-1 text-sm leading-6 text-slate-600">
                                     Fast-paced documentary and VIP protocol coverage across Malaysia and ASEAN.
@@ -191,7 +172,7 @@ include __DIR__ . '/header.php';
                                         <li class="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700"><?= e($skill) ?></li>
                                     <?php endforeach; ?>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
